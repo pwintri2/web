@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth h-full bg-slate-950 text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website voor je spiritueel werk — Philip Wintrip</title>
+    <meta name="description" content="Een website die past bij jouw manier van werken. Voor therapeuten, coaches, yogadocenten, astrologen en retreat-organisaties. Kies je uiterlijk, kleur en onderhoudsabonnement en vraag je website aan.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Website voor je spiritueel werk — Philip Wintrip">
+    <meta property="og:description" content="Van intake tot live website, met een uiterlijk en kleur die bij je werk passen. Inclusief onderhoudsabonnement.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23f59e0b'>✦</text></svg>">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18546508397"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18546508397');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        /* Subtiele hemelse grid-overlay bovenop de achtergrondafbeelding */
+        .bg-tech-grid {
+            background-size: 48px 48px;
+            background-image:
+                linear-gradient(to right, rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+        }
+        .card-glow-gold:hover {
+            box-shadow: 0 24px 60px -12px rgba(245, 158, 11, 0.20), 0 0 0 1px rgba(245, 158, 11, 0.40);
+        }
+        .card-glow-violet:hover {
+            box-shadow: 0 24px 60px -12px rgba(139, 92, 246, 0.22), 0 0 0 1px rgba(139, 92, 246, 0.45);
+        }
+        .card-glow-teal:hover {
+            box-shadow: 0 24px 60px -12px rgba(20, 184, 166, 0.20), 0 0 0 1px rgba(20, 184, 166, 0.40);
+        }
+        /* Subtiele shimmer op de primaire knop */
+        .btn-gold {
+            background-image: linear-gradient(120deg, #fbbf24 0%, #f59e0b 45%, #d97706 100%);
+        }
+        .btn-gold:hover {
+            background-image: linear-gradient(120deg, #fcd34d 0%, #fbbf24 45%, #f59e0b 100%);
+        }
+        /* Veld-look voor alle formuliervelden */
+        .field {
+            width: 100%;
+            border-radius: 0.75rem;
+            border: 1px solid rgb(30 41 59);
+            background-color: rgb(2 6 23 / 0.75);
+            padding: 0.7rem 0.9rem;
+            font-size: 0.9rem;
+            color: rgb(226 232 240);
+            transition: border-color .2s, box-shadow .2s, background-color .2s;
+        }
+        .field::placeholder { color: rgb(100 116 139); }
+        .field:focus {
+            outline: none;
+            border-color: rgb(245 158 11 / 0.7);
+            box-shadow: 0 0 0 3px rgb(245 158 11 / 0.15);
+            background-color: rgb(2 6 23 / 0.95);
+        }
+        .field-label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: rgb(203 213 225);
+            margin-bottom: 0.4rem;
+        }
+        .field-hint {
+            font-size: 0.72rem;
+            color: rgb(100 116 139);
+            margin-top: 0.35rem;
+        }
+        select.field {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+            background-size: 1.1em;
+            padding-right: 2.2rem;
+        }
+        select.field option { background-color: #0f172a; color: #e2e8f0; }
+        /* Checkbox- en radiomarkering */
+        /* Selectiestijlen: hogere specificiteit dan de Tailwind-utilities,
+           zodat de gekozen optie altijd zichtbaar blijft. */
+        .choice input:checked + label {
+            border-color: rgb(245 158 11 / 0.7);
+            background-color: rgb(245 158 11 / 0.1);
+        }
+        .choice input:checked + label.choice-teal {
+            border-color: rgb(45 212 191 / 0.7);
+            background-color: rgb(20 184 166 / 0.1);
+        }
+        .choice input:focus-visible + label {
+            outline: 2px solid rgb(245 158 11 / 0.8);
+            outline-offset: 2px;
+        }
+        .choice input:focus-visible + label.choice-teal {
+            outline-color: rgb(45 212 191 / 0.8);
+        }
+        .choice .choice-hint { display: inline-flex; }
+        .choice .choice-check { display: none; }
+        .choice input:checked + label .choice-hint { display: none; }
+        .choice input:checked + label .choice-check { display: inline-flex; }
+        /* Aangevinkte functionaliteit oplichten (:has ondersteunen alle moderne browsers) */
+        .check-opt:has(input:checked) {
+            border-color: rgb(245 158 11 / 0.6);
+            background-color: rgb(245 158 11 / 0.05);
+        }
+        /* Donkere checkboxes passend bij het thema */
+        input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+            flex: none;
+            width: 1.05rem;
+            height: 1.05rem;
+            border-radius: 0.35rem;
+            border: 1px solid rgb(51 65 85);
+            background-color: rgb(2 6 23 / 0.8);
+            display: inline-grid;
+            place-content: center;
+            cursor: pointer;
+            transition: border-color .2s, background-color .2s;
+        }
+        input[type="checkbox"]::after {
+            content: "";
+            width: 0.62rem;
+            height: 0.62rem;
+            transform: scale(0);
+            transform: translateY(-1px) rotate(45deg) scale(0);
+            border-right: 2px solid rgb(15 23 42);
+            border-bottom: 2px solid rgb(15 23 42);
+            transition: transform .15s ease;
+        }
+        input[type="checkbox"]:checked {
+            background-color: rgb(245 158 11);
+            border-color: rgb(245 158 11);
+        }
+        input[type="checkbox"]:checked::after {
+            transform: translateY(-1px) rotate(45deg) scale(1);
+        }
+        input[type="checkbox"]:focus-visible {
+            outline: 2px solid rgb(245 158 11 / 0.8);
+            outline-offset: 2px;
+        }
+        details[open] .faq-chevron { transform: rotate(180deg); }
+        .faq-chevron { transition: transform .2s ease; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+        }
+    </style>
+</head>
+<body class="min-h-full font-sans antialiased selection:bg-amber-500/30 selection:text-amber-200 relative overflow-x-hidden">
+
+    <!-- Professionele gelaagde achtergrond (Hero SVG + Ambient Glows + Grid) -->
+    <div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+        <img src="assets/hero-bg.svg" alt="" aria-hidden="true" fetchpriority="high"
+             class="w-full h-full object-cover opacity-60 mix-blend-luminosity scale-105">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
+        <div class="absolute inset-0 bg-tech-grid"></div>
+        <!-- Ambient Violet (rechts) & Goud (links) lichtaccenten -->
+        <div class="absolute -top-32 -right-24 w-[38rem] h-[38rem] rounded-full bg-violet-600/15 blur-[140px]"></div>
+        <div class="absolute bottom-0 -left-32 w-[36rem] h-[36rem] rounded-full bg-amber-500/10 blur-[140px]"></div>
+        <div class="absolute top-1/3 left-1/4 w-[28rem] h-[28rem] rounded-full bg-teal-500/10 blur-[130px]"></div>
+    </div>
+
+    <!-- Top Navigatiebalk -->
+    <header class="border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-xl sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 py-4 flex items-center justify-between gap-4">
+            <a href="#top" class="flex items-center gap-3.5 group">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500/25 via-slate-900 to-violet-600/25 border border-slate-700/80 group-hover:border-amber-400/60 text-amber-300 font-extrabold tracking-tight shadow-inner transition">
+                    PW
+                </span>
+                <div class="min-w-0">
+                    <span class="text-base sm:text-lg font-extrabold tracking-tight text-white block leading-none truncate">
+                        Philip Wintrip <span class="hidden sm:inline text-amber-400 font-semibold text-xs sm:text-sm ml-1">Websites voor het spiritueel vlak</span>
+                    </span>
+                    <span class="text-[11px] text-slate-400 hidden sm:inline-block mt-1">
+                        Rustig, vertrouwenwekkend en helemaal van jou
+                    </span>
+                </div>
+            </a>
+
+            <nav class="flex items-center gap-2 sm:gap-3 text-xs font-semibold">
+                <a href="#voor-wie" class="px-3.5 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition hidden md:inline-block">
+                    Voor wie
+                </a>
+                <a href="#pakketten" class="px-3.5 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition hidden md:inline-block">
+                    Pakketten
+                </a>
+                <a href="#onderhoud" class="px-3.5 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition hidden md:inline-block">
+                    Onderhoud
+                </a>
+                <a href="#aanvraag" class="px-3 sm:px-3.5 py-2 rounded-xl btn-gold text-slate-950 font-extrabold shadow-lg shadow-amber-500/15 hover:shadow-amber-500/30 transition whitespace-nowrap">
+                    <span class="text-[11px] sm:text-xs">Vraag je website aan</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top" class="max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-24 space-y-20">
+
+        <!-- ================================================================== -->
+        <!-- HERO SECTIE -->
+        <!-- ================================================================== -->
+        <section class="text-center max-w-4xl mx-auto space-y-6 pt-4">
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-900/90 text-slate-200 border border-slate-700/80 shadow-lg">
+                <span class="h-2 w-2 rounded-full bg-amber-400 animate-pulse"></span>
+                <span>Reactie binnen 24 uur · Op maat · Geen contract verplicht</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-semibold tracking-tight text-white leading-[1.1]">
+                Een website die <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-violet-400">ademt</span> en <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-300 to-teal-300">vertrouwen uitstraalt</span>.
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                Voor therapeuten, coaches, yogadocenten, astrologen en retreat-organisaties. Jij vertelt wat je doet,
+                hoe de website eruit mag zien en welke kleuren je voelt — wij bouwen hem, met of zonder onderhoudsabonnement.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                <a href="#aanvraag"
+                   class="w-full sm:w-auto px-7 py-3.5 rounded-xl btn-gold hover:brightness-110 text-slate-950 font-extrabold text-sm flex items-center justify-center gap-2 shadow-xl shadow-amber-500/20 transition">
+                    <span>Vraag je website aan</span>
+                    <span>→</span>
+                </a>
+                <a href="#pakketten"
+                   class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-900/70 hover:bg-slate-800/80 text-slate-100 border border-slate-700/80 hover:border-slate-600 font-bold text-sm flex items-center justify-center gap-2 transition">
+                    <span>Bekijk pakketten &amp; prijzen</span>
+                </a>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-4 text-xs text-slate-400">
+                <span class="inline-flex items-center gap-1.5"><span class="text-amber-400 font-bold">✓</span> Eenmalige investering vanaf € 495</span>
+                <span class="inline-flex items-center gap-1.5"><span class="text-amber-400 font-bold">✓</span> Onderhoud optioneel vanaf € 0</span>
+                <span class="inline-flex items-center gap-1.5"><span class="text-amber-400 font-bold">✓</span> Doorlooptijd 3–5 weken</span>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- VOOR WIE -->
+        <!-- ================================================================== -->
+        <section id="voor-wie" class="space-y-8">
+            <div class="max-w-3xl">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Voor wie</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-semibold text-white mt-1">
+                    gemaakt voor mensen die met hun werk iets willen betekenen
+                </h2>
+                <p class="text-sm sm:text-base text-slate-400 mt-2 leading-relaxed">
+                    Geen standaard sjabloon dat eruit klopt, maar een website die aansluit bij jouw taal,
+                    jouw overtuiging en de sfeer waarin jouw klanten zich veilig voelen.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+
+                <article class="group rounded-2xl border border-slate-800/90 bg-slate-900/60 backdrop-blur-xl p-5 space-y-3 transition-all duration-300 card-glow-gold hover:-translate-y-1">
+                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/12 text-amber-300 border border-amber-500/25">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3.5 2-5.5A6.5 6.5 0 0 0 12 2C7.6 2 4 5.6 4 10c0 2 .5 4 1.5 5.5"/><path d="M12 22v-9"/><path d="M8.5 13.5c2.5 1.5 4.5 1.5 7 0"/></svg>
+                    </span>
+                    <h3 class="text-base font-bold text-white">Therapeuten &amp; coaches</h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        GNO, psychosomatiek, hypnotherapie, trauma- en burn-outcoaching. Een rustige site met
+                        duidelijke afspraken, afsprakenplanner en vertrouwenwekkende teksten.
+                    </p>
+                </article>
+
+                <article class="group rounded-2xl border border-slate-800/90 bg-slate-900/60 backdrop-blur-xl p-5 space-y-3 transition-all duration-300 card-glow-gold hover:-translate-y-1">
+                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/12 text-amber-300 border border-amber-500/25">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                    </span>
+                    <h3 class="text-base font-bold text-white">Yoga-, meditatie- &amp; mindfulnesdocenten</h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        Lessen, cursussen en retreats met een warme uitstraling, online inschrijving en een
+                        agenda die automatisch op de achtergrond meebeweegt.
+                    </p>
+                </article>
+
+                <article class="group rounded-2xl border border-slate-800/90 bg-slate-900/60 backdrop-blur-xl p-5 space-y-3 transition-all duration-300 card-glow-violet hover:-translate-y-1">
+                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/12 text-violet-300 border border-violet-500/25">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5 8.5 8.5 0 1 0 20.5 14.6Z"/></svg>
+                    </span>
+                    <h3 class="text-base font-bold text-white">Astrologen, tarot- &amp; holistische adviseurs</h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        Een mystiekere sfeer met sterrenbeelden, een eigen digitaal profiel en ruimte voor
+                        lezingen, workshops en een veilige afspraakplanner.
+                    </p>
+                </article>
+
+                <article class="group rounded-2xl border border-slate-800/90 bg-slate-900/60 backdrop-blur-xl p-5 space-y-3 transition-all duration-300 card-glow-teal hover:-translate-y-1">
+                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/12 text-teal-300 border border-teal-500/25">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg>
+                    </span>
+                    <h3 class="text-base font-bold text-white">Retreats, reizen &amp; stilteweekenden</h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        Programma op de voorpagina, plekken tellen, betalingen en een fotogalerij die de sfeer
+                        meteen laat voelen.
+                    </p>
+                </article>
+
+                <article class="group rounded-2xl border border-slate-800/90 bg-slate-900/60 backdrop-blur-xl p-5 space-y-3 transition-all duration-300 card-glow-gold hover:-translate-y-1">
+                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/12 text-amber-300 border border-amber-500/25">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16l-1.5 11H5.5L4 8Z"/><path d="M8.5 8a3.5 3.5 0 0 1 7 0"/></svg>
+                    </span>
+                    <h3 class="text-base font-bold text-white">Spiritual shops &amp; webshops</h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        Winkel met bewustzijn-producten, abonnementen en cadeaubonnen — met een kassestrook
+                        die net zo verzorgd is als de rest.
+                    </p>
+                </article>
+
+                <article class="group rounded-2xl border border-slate-800/90 bg-slate-900/60 backdrop-blur-xl p-5 space-y-3 transition-all duration-300 card-glow-violet hover:-translate-y-1">
+                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/12 text-violet-300 border border-violet-500/25">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.5a3 3 0 0 1 0 5"/><path d="M17.5 14.2A6 6 0 0 1 21 20"/></svg>
+                    </span>
+                    <h3 class="text-base font-bold text-white">Gemeenschappen &amp; kerkelijke initiatieven</h3>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        Informatie, agenda en lidmaatschap op één plek. Ook goed te gebruiken als
+                        bestuurswebsite of informatiepunt voor een parochie of buurtschap.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- PAKKETTEN (eenmalige investering) -->
+        <!-- ================================================================== -->
+        <section id="pakketten" class="space-y-8">
+            <div class="max-w-3xl">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Websitepakketten</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-semibold text-white mt-1">
+                    Eenmalige investering, duidelijke prijs
+                </h2>
+                <p class="text-sm sm:text-base text-slate-400 mt-2 leading-relaxed">
+                    Alle prijzen zijn excl. btw en voorlopig. Je kiest zelf welk pakket bij je vraag aanpast;
+                    na een vrijblijvend intakegesprek maken we er een offerte op maat van.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
+
+                <!-- Essentieel -->
+                <article class="group rounded-3xl border border-slate-800/90 bg-slate-900/70 backdrop-blur-xl flex flex-col transition-all duration-300 card-glow-gold hover:-translate-y-1">
+                    <div class="p-6 space-y-4 flex-1">
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Essentieel</div>
+                        <h3 class="text-lg font-extrabold text-white">Een heldere start</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-white">€ 495</span>
+                            <span class="text-xs text-slate-400">excl. btw</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>1 responsive pagina</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Contactformulier + e-mailmeldingen</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Kleuren &amp; teksten zelf aanpassen</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>SSL, hosting &amp; basis SEO</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Oplevering met uitleg</span></li>
+                        </ul>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button type="button" data-kies-pakket="essentieel"
+                                class="w-full py-3 px-4 rounded-xl bg-slate-800/70 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700/80 transition">
+                            Kies dit pakket →
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Helder -->
+                <article class="group rounded-3xl border border-amber-500/40 bg-slate-900/75 backdrop-blur-xl flex flex-col relative overflow-hidden transition-all duration-300 card-glow-gold hover:-translate-y-1">
+                    <span class="absolute top-0 right-0 px-4 py-1.5 bg-amber-500 text-slate-950 text-[11px] font-extrabold rounded-bl-xl">MEEST GEKOZEN</span>
+                    <div class="p-6 space-y-4 flex-1">
+                        <div class="text-xs font-bold uppercase tracking-wider text-amber-400">Helder</div>
+                        <h3 class="text-lg font-extrabold text-white">Voor een grotere praktijk</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-amber-400">€ 895</span>
+                            <span class="text-xs text-slate-400">excl. btw</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Tot 5 pagina's</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Afsprakenplanner &amp; contactformulier</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Nieuwsbrief-integratie</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Eigen beheeromgeving (CMS)</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Analytics &amp; basis lokale SEO</span></li>
+                        </ul>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button type="button" data-kies-pakket="helder"
+                                class="w-full py-3 px-4 rounded-xl btn-gold hover:brightness-110 text-slate-950 font-extrabold text-xs shadow-lg shadow-amber-500/15 transition">
+                            Kies dit pakket →
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Uitgelicht -->
+                <article class="group rounded-3xl border border-slate-800/90 bg-slate-900/70 backdrop-blur-xl flex flex-col transition-all duration-300 card-glow-violet hover:-translate-y-1">
+                    <div class="p-6 space-y-4 flex-1">
+                        <div class="text-xs font-bold uppercase tracking-wider text-violet-400">Uitgelicht</div>
+                        <h3 class="text-lg font-extrabold text-white">Voor een volledig aanbod</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-white">€ 1.595</span>
+                            <span class="text-xs text-slate-400">excl. btw</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Tot 10 pagina's</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Cursus- of retreatmodule met betaling</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Webshop of donatie</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Meertalig (NL / EN)</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Volledige SEO-opzet</span></li>
+                        </ul>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button type="button" data-kies-pakket="uitgelicht"
+                                class="w-full py-3 px-4 rounded-xl bg-slate-800/70 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700/80 transition">
+                            Kies dit pakket →
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Maatwerk -->
+                <article class="group rounded-3xl border border-slate-800/90 bg-slate-900/70 backdrop-blur-xl flex flex-col transition-all duration-300 card-glow-teal hover:-translate-y-1">
+                    <div class="p-6 space-y-4 flex-1">
+                        <div class="text-xs font-bold uppercase tracking-wider text-teal-400">Maatwerk</div>
+                        <h3 class="text-lg font-extrabold text-white">Iets unieks?</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-white">vanaf € 2.395</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Ledenportaal of community</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Integraties (agenda, boekingen, betalingen)</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Motion, beeld &amp; sfeervlak</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Volledig op maat in overleg</span></li>
+                        </ul>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button type="button" data-kies-pakket="maatwerk"
+                                class="w-full py-3 px-4 rounded-xl bg-slate-800/70 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700/80 transition">
+                            Kies dit pakket →
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+
+            <p class="text-xs text-slate-500 text-center">
+                Alle prijzen excl. btw (21%) · Betaling 50% bij start en 50% bij oplevering ·
+                Gemiddelde doorlooptijd 3–5 weken · Vaste prijs, geen nacalculatie
+            </p>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- ONDERHOUDSABONNEMENT -->
+        <!-- ================================================================== -->
+        <section id="onderhoud" class="space-y-8">
+            <div class="max-w-3xl">
+                <span class="text-xs font-bold uppercase tracking-wider text-teal-400">Onderhoudsabonnement</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-semibold text-white mt-1">
+                    Laat je site ademen — of beheer hem helemaal zelf
+                </h2>
+                <p class="text-sm sm:text-base text-slate-400 mt-2 leading-relaxed">
+                    Een website groeit, verouderd of raakt kwijt. Kies per maand wat je uit handen geeft.
+                    Elk abonnement is maandelijks opzegbaar — je zit nergens aan vast.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
+
+                <article class="rounded-3xl border border-slate-800/90 bg-slate-900/60 backdrop-blur-xl p-6 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Zelfbeheer</div>
+                        <h3 class="text-lg font-extrabold text-white">Ik doe het zelf</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-white">€ 0</span>
+                            <span class="text-xs text-slate-400">per maand</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-slate-400 font-bold mt-0.5">✓</span><span>Volledige toegang tot de beheeromgeving</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-slate-400 font-bold mt-0.5">✓</span><span>Handleiding in begrijpelijke taal</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-slate-400 font-bold mt-0.5">✓</span><span>1 uur instructiecall bij oplevering</span></li>
+                        </ul>
+                    </div>
+                    <button type="button" data-kies-onderhoud="zelfbeheer"
+                            class="mt-6 w-full py-3 px-4 rounded-xl bg-slate-800/70 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700/80 transition">
+                        Kies dit abonnement →
+                    </button>
+                </article>
+
+                <article class="rounded-3xl border border-slate-800/90 bg-slate-900/60 backdrop-blur-xl p-6 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-xs font-bold uppercase tracking-wider text-teal-400">Zorgbasis</div>
+                        <h3 class="text-lg font-extrabold text-white">Up-to-date &amp; veilig</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-teal-400">€ 25</span>
+                            <span class="text-xs text-slate-400">per maand</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Beveiligings- &amp; pluginupdates</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Dagelijkse back-ups &amp; SSL</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>1 uur support per maand</span></li>
+                        </ul>
+                    </div>
+                    <button type="button" data-kies-onderhoud="zorgbasis"
+                            class="mt-6 w-full py-3 px-4 rounded-xl bg-slate-800/70 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700/80 transition">
+                        Kies dit abonnement →
+                    </button>
+                </article>
+
+                <article class="rounded-3xl border border-teal-500/40 bg-slate-900/70 backdrop-blur-xl p-6 flex flex-col justify-between relative overflow-hidden">
+                    <span class="absolute top-0 right-0 px-4 py-1.5 bg-teal-500 text-slate-950 text-[11px] font-extrabold rounded-bl-xl">MEEST GEKOZEN</span>
+                    <div class="space-y-3">
+                        <div class="text-xs font-bold uppercase tracking-wider text-teal-400">Zorg plus</div>
+                        <h3 class="text-lg font-extrabold text-white">Ook mee blijven groeien</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-teal-400">€ 49</span>
+                            <span class="text-xs text-slate-400">per maand</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Alles uit Zorgbasis</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Contentwijzigingen (tot 2 uur)</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Kwartaalreview &amp; prioriteit in de rij</span></li>
+                        </ul>
+                    </div>
+                    <button type="button" data-kies-onderhoud="zorgplus"
+                            class="mt-6 w-full py-3 px-4 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-extrabold text-xs shadow-lg shadow-teal-600/20 transition">
+                        Kies dit abonnement →
+                    </button>
+                </article>
+
+                <article class="rounded-3xl border border-slate-800/90 bg-slate-900/60 backdrop-blur-xl p-6 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-xs font-bold uppercase tracking-wider text-violet-400">Zorg groei</div>
+                        <h3 class="text-lg font-extrabold text-white">Continu in beweging</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-violet-400">€ 89</span>
+                            <span class="text-xs text-slate-400">per maand</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Alles uit Zorg plus</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>5 uur per maand voor doorontwikkeling</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Lokale SEO &amp; maandelijkse rapportage</span></li>
+                        </ul>
+                    </div>
+                    <button type="button" data-kies-onderhoud="zorggroei"
+                            class="mt-6 w-full py-3 px-4 rounded-xl bg-slate-800/70 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700/80 transition">
+                        Kies dit abonnement →
+                    </button>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- WERKWIJZE -->
+        <!-- ================================================================== -->
+        <section id="werkwijze" class="rounded-3xl border border-slate-800/80 bg-slate-900/60 backdrop-blur-xl p-6 sm:p-10">
+            <div class="max-w-3xl mb-8">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Werkwijze</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-semibold text-white mt-1">
+                    Van eerste gesprek tot een live website
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">
+                    Je hoeft niets van websites te snappen. Jij vertelt wat je wilt vertellen, wij regelen de techniek.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
+                <div class="rounded-2xl bg-slate-950/80 border border-slate-800/90 p-5 space-y-2">
+                    <div class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 font-bold text-xs border border-amber-500/30">1</div>
+                    <h3 class="font-bold text-white text-base">Intake &amp; gesprek</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        30 minuten (gratis) via beeldbellen of telefonisch. We luisteren naar je werk,
+                        je doelgroep en hoe je wilt klinken.
+                    </p>
+                </div>
+                <div class="rounded-2xl bg-slate-950/80 border border-slate-800/90 p-5 space-y-2">
+                    <div class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 font-bold text-xs border border-amber-500/30">2</div>
+                    <h3 class="font-bold text-white text-base">Concept &amp; uiterlijk</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Binnen 3 werkdagen krijg je een moodboard met sfeer, kleurpalet en de structuur
+                        van je pagina's.
+                    </p>
+                </div>
+                <div class="rounded-2xl bg-slate-950/80 border border-slate-800/90 p-5 space-y-2">
+                    <div class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-violet-500/15 text-violet-400 font-bold text-xs border border-violet-500/30">3</div>
+                    <h3 class="font-bold text-white text-base">Bouw &amp; content</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        3 tot 5 weken. Jij levert teksten, logo en foto's — of we schrijven de teksten
+                        met je mee.
+                    </p>
+                </div>
+                <div class="rounded-2xl bg-slate-950/80 border border-slate-800/90 p-5 space-y-2">
+                    <div class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-teal-500/15 text-teal-400 font-bold text-xs border border-teal-500/30">4</div>
+                    <h3 class="font-bold text-white text-base">Live &amp; nazorg</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Oplevering met uitleg, en met een onderhoudsabonnement blijven we bereikbaar
+                        als er iets verandert.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- AANVRAAGFORMULIER -->
+        <!-- ================================================================== -->
+        <section id="aanvraag" class="space-y-8 scroll-mt-24">
+            <div class="max-w-3xl">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Aanvraag</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-semibold text-white mt-1">
+                    Vertel ons over jouw website
+                </h2>
+                <p class="text-sm sm:text-base text-slate-400 mt-2 leading-relaxed">
+                    Vul het formulier in — je hoeft niet alles meteen te weten. We sturen binnen 24 uur een
+                    reactie met een offerte op maat. Je gegevens gaan alleen naar
+                    <a href="mailto:info@wintrip.nl" class="text-amber-400 hover:underline font-semibold">info@wintrip.nl</a>.
+                </p>
+            </div>
+
+            <!-- Succesmelding (na verzenden) -->
+            <div id="verzonden-melding" class="hidden rounded-2xl border border-teal-500/40 bg-teal-500/10 p-6 sm:p-8">
+                <div class="flex items-start gap-4">
+                    <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-500/20 text-teal-300 border border-teal-500/40">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>
+                    </span>
+                    <div>
+                        <h3 class="text-lg font-extrabold text-white">Je aanvraag is verzonden</h3>
+                        <p class="text-sm text-slate-300 mt-1 leading-relaxed">
+                            Dank je wel. Je aanvraag staat onder onze aandacht; binnen 24 uur ontvang je een reactie
+                            op <strong class="text-white">info@wintrip.nl</strong> of direct op het opgegeven e-mailadres.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
+
+                <!-- FORMULIER -->
+                <form id="aanvraag-formulier" action="verzenden.php" method="post"
+                      class="lg:col-span-2 rounded-3xl border border-slate-800/90 bg-slate-900/65 backdrop-blur-xl p-5 sm:p-8 space-y-9">
+
+                    <!-- Honeypot tegen bots -->
+                    <div class="hidden" aria-hidden="true">
+                        <label for="bedrijfswebsite_hp">Laat dit veld leeg</label>
+                        <input type="text" id="bedrijfswebsite_hp" name="bedrijfswebsite_hp" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <!-- 1. Contactgegevens -->
+                    <fieldset class="space-y-5">
+                        <legend class="flex items-center gap-3 w-full">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">1</span>
+                            <span class="text-base font-extrabold text-white">Contactgegevens</span>
+                        </legend>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="field-label" for="naam">Naam <span class="text-amber-400">*</span></label>
+                                <input class="field" type="text" id="naam" name="naam" required autocomplete="name" placeholder="Voor- en achternaam">
+                            </div>
+                            <div>
+                                <label class="field-label" for="email">E-mailadres <span class="text-amber-400">*</span></label>
+                                <input class="field" type="email" id="email" name="email" required autocomplete="email" placeholder="naam@voorbeeld.nl">
+                            </div>
+                            <div>
+                                <label class="field-label" for="telefoon">Telefoon <span class="text-slate-500 font-normal">(optioneel)</span></label>
+                                <input class="field" type="tel" id="telefoon" name="telefoon" autocomplete="tel" placeholder="06 12 34 56 78">
+                            </div>
+                            <div>
+                                <label class="field-label" for="organisatie">Praktijk of organisatie</label>
+                                <input class="field" type="text" id="organisatie" name="organisatie" placeholder="Bijv. Praktijk De Buitenrust">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="field-label" for="huidige_website">Huidige website <span class="text-slate-500 font-normal">(optioneel)</span></label>
+                                <input class="field" type="text" id="huidige_website" name="huidige_website" placeholder="www.voorbeeld.nl">
+                                <p class="field-hint">Staat er al een site? Dan kijken we of we die kunnen herbouwen of uitbreiden.</p>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- 2. Jouw werk -->
+                    <fieldset class="space-y-5">
+                        <legend class="flex items-center gap-3 w-full border-t border-slate-800/80 pt-8">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">2</span>
+                            <span class="text-base font-extrabold text-white">Jouw werk</span>
+                        </legend>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="field-label" for="type_website">Type website <span class="text-amber-400">*</span></label>
+                                <select class="field" id="type_website" name="type_website" required>
+                                    <option value="">Kies een type…</option>
+                                    <option>Praktijkwebsite (therapie, coaching)</option>
+                                    <option>Cursussen &amp; lessen</option>
+                                    <option>Retreats &amp; evenementen</option>
+                                    <option>Webshop met bewustzijn-producten</option>
+                                    <option>Landingspagina / campagne</option>
+                                    <option>Studie- of communityportaal</option>
+                                    <option>Persoonlijk portfolio</option>
+                                    <option>Ik weet het nog niet</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="field-label" for="startdatum">Gewenste startdatum <span class="text-slate-500 font-normal">(optioneel)</span></label>
+                                <input class="field" type="date" id="startdatum" name="startdatum">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="field-label" for="werkomschrijving">Vertel kort over je werk <span class="text-amber-400">*</span></label>
+                            <textarea class="field" id="werkomschrijving" name="werkomschrijving" rows="4" required
+                                      placeholder="Wat doe je, voor wie, en wat wil je dat mensen voelen als ze op je site komen?"></textarea>
+                            <p class="field-hint">Twee of drie zinnen is genoeg. Hoe persoonlijker, hoe beter we het verhaal kunnen vertalen naar je site.</p>
+                        </div>
+                    </fieldset>
+
+                    <!-- 3. Uiterlijk -->
+                    <fieldset class="space-y-5">
+                        <legend class="flex items-center gap-3 w-full border-t border-slate-800/80 pt-8">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">3</span>
+                            <span class="text-base font-extrabold text-white">Uiterlijk</span>
+                        </legend>
+
+                        <p class="text-xs text-slate-400">Welk gevoel moet de website uitstralen? Kies één richting — in het intakegesprek bepalen we samen de details.</p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Uiterlijk 1 -->
+                            <div class="choice">
+                                <input type="radio" id="uiterlijk-minimalistisch" name="uiterlijk" value="Minimalistisch &amp; rustig" class="sr-only" required>
+                                <label for="uiterlijk-minimalistisch" class="block cursor-pointer rounded-2xl border border-slate-800 bg-slate-950/60 p-4 transition hover:border-slate-600">
+                                    <div class="h-20 rounded-xl bg-gradient-to-br from-stone-200 to-stone-400/70 p-3 space-y-1.5">
+                                        <div class="h-1.5 w-1/2 rounded-full bg-stone-600/60"></div>
+                                        <div class="h-1 w-full rounded-full bg-stone-500/40"></div>
+                                        <div class="h-1 w-4/5 rounded-full bg-stone-500/40"></div>
+                                    </div>
+                                    <div class="mt-3 flex items-start justify-between gap-3">
+                                        <div>
+                                            <div class="text-sm font-bold text-white">Minimalistisch &amp; rustig</div>
+                                            <p class="text-[11px] text-slate-400 mt-0.5">Veel witruimte, zachte typografie, tekst staat centraal.</p>
+                                        </div>
+                                        <span class="choice-hint text-[10px] text-slate-600 shrink-0">kies</span>
+                                        <span class="choice-check text-[10px] text-amber-400 font-bold shrink-0">✓ gekozen</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Uiterlijk 2 -->
+                            <div class="choice">
+                                <input type="radio" id="uiterlijk-warm" name="uiterlijk" value="Warm &amp; verzorgend" class="sr-only">
+                                <label for="uiterlijk-warm" class="block cursor-pointer rounded-2xl border border-slate-800 bg-slate-950/60 p-4 transition hover:border-slate-600">
+                                    <div class="h-20 rounded-xl bg-gradient-to-br from-amber-100 to-rose-200/70 p-3 space-y-1.5">
+                                        <div class="h-1.5 w-2/5 rounded-full bg-amber-700/50"></div>
+                                        <div class="h-1 w-full rounded-full bg-amber-800/30"></div>
+                                        <div class="h-1 w-3/4 rounded-full bg-amber-800/30"></div>
+                                    </div>
+                                    <div class="mt-3 flex items-start justify-between gap-3">
+                                        <div>
+                                            <div class="text-sm font-bold text-white">Warm &amp; verzorgend</div>
+                                            <p class="text-[11px] text-slate-400 mt-0.5">Aardetinten, warme foto's, uitnodigend en koesterend.</p>
+                                        </div>
+                                        <span class="choice-hint text-[10px] text-slate-600 shrink-0">kies</span>
+                                        <span class="choice-check text-[10px] text-amber-400 font-bold shrink-0">✓ gekozen</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Uiterlijk 3 -->
+                            <div class="choice">
+                                <input type="radio" id="uiterlijk-mystiek" name="uiterlijk" value="Mystiek &amp; intiem" class="sr-only">
+                                <label for="uiterlijk-mystiek" class="block cursor-pointer rounded-2xl border border-slate-800 bg-slate-950/60 p-4 transition hover:border-slate-600">
+                                    <div class="h-20 rounded-xl bg-gradient-to-br from-violet-950 via-indigo-900 to-slate-950 p-3 space-y-1.5 relative overflow-hidden">
+                                        <div class="absolute top-2 right-3 h-1.5 w-1.5 rounded-full bg-violet-200"></div>
+                                        <div class="absolute top-5 right-6 h-1 w-1 rounded-full bg-amber-200/70"></div>
+                                        <div class="h-1.5 w-1/3 rounded-full bg-violet-200/60"></div>
+                                        <div class="h-1 w-full rounded-full bg-violet-300/30"></div>
+                                        <div class="h-1 w-2/3 rounded-full bg-violet-300/30"></div>
+                                    </div>
+                                    <div class="mt-3 flex items-start justify-between gap-3">
+                                        <div>
+                                            <div class="text-sm font-bold text-white">Mystiek &amp; intiem</div>
+                                            <p class="text-[11px] text-slate-400 mt-0.5">Donkere tinten, sterren, sfeervol en bijzonder.</p>
+                                        </div>
+                                        <span class="choice-hint text-[10px] text-slate-600 shrink-0">kies</span>
+                                        <span class="choice-check text-[10px] text-amber-400 font-bold shrink-0">✓ gekozen</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Uiterlijk 4 -->
+                            <div class="choice">
+                                <input type="radio" id="uiterlijk-modern" name="uiterlijk" value="Modern &amp; helder" class="sr-only">
+                                <label for="uiterlijk-modern" class="block cursor-pointer rounded-2xl border border-slate-800 bg-slate-950/60 p-4 transition hover:border-slate-600">
+                                    <div class="h-20 rounded-xl bg-gradient-to-br from-white to-slate-300 p-3 space-y-1.5">
+                                        <div class="h-2.5 w-1/3 rounded bg-slate-800/80"></div>
+                                        <div class="h-1 w-full rounded-full bg-slate-500/50"></div>
+                                        <div class="h-1 w-5/6 rounded-full bg-slate-500/50"></div>
+                                        <div class="h-3 w-1/4 rounded bg-slate-800/70"></div>
+                                    </div>
+                                    <div class="mt-3 flex items-start justify-between gap-3">
+                                        <div>
+                                            <div class="text-sm font-bold text-white">Modern &amp; helder</div>
+                                            <p class="text-[11px] text-slate-400 mt-0.5">Strak, veel wit, krachtige typografie.</p>
+                                        </div>
+                                        <span class="choice-hint text-[10px] text-slate-600 shrink-0">kies</span>
+                                        <span class="choice-check text-[10px] text-amber-400 font-bold shrink-0">✓ gekozen</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- 4. Kleuren -->
+                    <fieldset class="space-y-5">
+                        <legend class="flex items-center gap-3 w-full border-t border-slate-800/80 pt-8">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">4</span>
+                            <span class="text-base font-extrabold text-white">Kleur</span>
+                        </legend>
+
+                        <p class="text-xs text-slate-400">Kies een basiskleur. We bouwen de paletten daaromheen (achtergrond, accenten, typografie).</p>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <div class="choice">
+                                <input type="radio" id="kleur-aards" name="kleuren" value="Aards &amp; gedempt" class="sr-only" required>
+                                <label for="kleur-aards" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#8a7f6d,#4b4438)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Aards &amp; gedempt</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-zand" name="kleuren" value="Zand &amp; warm goud" class="sr-only">
+                                <label for="kleur-zand" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#e8c37a,#b4823a)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Zand &amp; warm goud</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-salie" name="kleuren" value="Salie &amp; zacht groen" class="sr-only">
+                                <label for="kleur-salie" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#a8c1a4,#5f7a5c)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Salie &amp; zacht groen</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-bos" name="kleuren" value="Smaragd &amp; diep bos" class="sr-only">
+                                <label for="kleur-bos" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#3f9e7e,#12402f)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Smaragd &amp; diep bos</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-lavendel" name="kleuren" value="Lavendel &amp; violet" class="sr-only">
+                                <label for="kleur-lavendel" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#b9a6ea,#4c3a86)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Lavendel &amp; violet</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-nacht" name="kleuren" value="Nachtblauw &amp; sterren" class="sr-only">
+                                <label for="kleur-nacht" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#5f77c9,#151c38)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Nachtblauw &amp; sterren</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-bloesem" name="kleuren" value="Bloesemroze" class="sr-only">
+                                <label for="kleur-bloesem" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#f0b6c8,#a35a72)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Bloesemroze</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-mono" name="kleuren" value="Monochroom &amp; houtskool" class="sr-only">
+                                <label for="kleur-mono" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#6b7280,#18181b)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Monochroom &amp; houtskool</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- 5. Functionaliteiten -->
+                    <fieldset class="space-y-5">
+                        <legend class="flex items-center gap-3 w-full border-t border-slate-800/80 pt-8">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">5</span>
+                            <span class="text-base font-extrabold text-white">Wat moet de site kunnen?</span>
+                        </legend>
+
+                        <p class="text-xs text-slate-400">Vink aan wat je wilt. Niets aangevinkt is ook goed — we denken mee.</p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Contactformulier" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Contactformulier</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Online afspraakplanner" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Online afspraakplanner</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Nieuwsbrief" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Nieuwsbrief</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Webshop of donatie" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Webshop of donatie</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Cursus- of videotraining" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Cursus- of videotraining</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Ledenlogin of community" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Ledenlogin of community</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Meertalig (NL / EN)" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Meertalig (NL / EN)</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Blog of nieuws" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Blog of nieuws</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Eigen domein en e-mail" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Eigen domein en e-mail</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Privacy- en AVG-teksten" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Privacy- en AVG-teksten</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 6. Pakket & onderhoud -->
+                    <fieldset class="space-y-7">
+                        <legend class="flex items-center gap-3 w-full border-t border-slate-800/80 pt-8">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">6</span>
+                            <span class="text-base font-extrabold text-white">Pakket &amp; onderhoud</span>
+                        </legend>
+
+                        <div>
+                            <span class="field-label">Websitepakket <span class="text-amber-400">*</span></span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="choice">
+                                    <input type="radio" id="pakket-essentieel" name="pakket" value="Essentieel — € 495" data-prijs="495" class="sr-only" required>
+                                    <label for="pakket-essentieel" class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Essentieel</span>
+                                        <span class="text-sm font-extrabold text-white">€ 495</span>
+                                    </label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="pakket-helder" name="pakket" value="Helder — € 895" data-prijs="895" class="sr-only">
+                                    <label for="pakket-helder" class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Helder <span class="text-[10px] text-amber-400 font-bold">meest gekozen</span></span>
+                                        <span class="text-sm font-extrabold text-white">€ 895</span>
+                                    </label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="pakket-uitgelicht" name="pakket" value="Uitgelicht — € 1.595" data-prijs="1595" class="sr-only">
+                                    <label for="pakket-uitgelicht" class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Uitgelicht</span>
+                                        <span class="text-sm font-extrabold text-white">€ 1.595</span>
+                                    </label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="pakket-maatwerk" name="pakket" value="Maatwerk — vanaf € 2.395" data-prijs="2395" class="sr-only">
+                                    <label for="pakket-maatwerk" class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Maatwerk</span>
+                                        <span class="text-sm font-extrabold text-white">vanaf € 2.395</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="field-label">Onderhoudsabonnement <span class="text-amber-400">*</span></span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="choice">
+                                    <input type="radio" id="onderhoud-zelfbeheer" name="onderhoud" value="Zelfbeheer — € 0 per maand" data-prijs="0" class="sr-only" required>
+                                    <label for="onderhoud-zelfbeheer" class="choice-teal flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Zelfbeheer</span>
+                                        <span class="text-sm font-extrabold text-white">€ 0</span>
+                                    </label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="onderhoud-zorgbasis" name="onderhoud" value="Zorgbasis — € 25 per maand" data-prijs="25" class="sr-only">
+                                    <label for="onderhoud-zorgbasis" class="choice-teal flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Zorgbasis</span>
+                                        <span class="text-sm font-extrabold text-white">€ 25</span>
+                                    </label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="onderhoud-zorgplus" name="onderhoud" value="Zorg plus — € 49 per maand" data-prijs="49" class="sr-only">
+                                    <label for="onderhoud-zorgplus" class="choice-teal flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Zorg plus <span class="text-[10px] text-teal-300 font-bold">meest gekozen</span></span>
+                                        <span class="text-sm font-extrabold text-white">€ 49</span>
+                                    </label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="onderhoud-zorggroei" name="onderhoud" value="Zorg groei — € 89 per maand" data-prijs="89" class="sr-only">
+                                    <label for="onderhoud-zorggroei" class="choice-teal flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Zorg groei</span>
+                                        <span class="text-sm font-extrabold text-white">€ 89</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- 7. Bericht & verzenden -->
+                    <fieldset class="space-y-5">
+                        <legend class="flex items-center gap-3 w-full border-t border-slate-800/80 pt-8">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">7</span>
+                            <span class="text-base font-extrabold text-white">Versturen</span>
+                        </legend>
+
+                        <div>
+                            <label class="field-label" for="bericht">Nog iets te zeggen? <span class="text-slate-500 font-normal">(optioneel)</span></label>
+                            <textarea class="field" id="bericht" name="bericht" rows="4"
+                                      placeholder="Bijvoorbeeld: ik heb al een logo, ik wil graag een tekstenlijst, of ik heb een vaste deadline."></textarea>
+                        </div>
+
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" id="privacy" name="privacy" value="akkoord" required class="mt-0.5 h-4 w-4">
+                            <span class="text-xs text-slate-400 leading-relaxed">
+                                Ik ga akkoord dat mijn gegevens worden gebruikt om mijn aanvraag te beantwoorden.
+                                Mijn gegevens worden niet verkocht of aan derden verstrekt. <span class="text-amber-400">*</span>
+                            </span>
+                        </label>
+
+                        <div id="formulier-fout" class="hidden rounded-xl border border-rose-500/40 bg-rose-500/10 px-4 py-3 text-xs text-rose-200"></div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
+                            <button type="submit"
+                                    class="w-full sm:w-auto px-8 py-4 rounded-xl btn-gold hover:brightness-110 text-slate-950 font-extrabold text-sm flex items-center justify-center gap-2 shadow-xl shadow-amber-500/20 transition whitespace-nowrap">
+                                <span>Verstuur mijn aanvraag</span>
+                                <span>→</span>
+                            </button>
+                            <p class="text-[11px] text-slate-500 leading-relaxed">
+                                Je aanvraag komt binnen bij <a href="mailto:info@wintrip.nl" class="text-slate-300 hover:text-amber-400">info@wintrip.nl</a>.
+                                Reactie binnen 24 uur · je gegevens blijven privé
+                            </p>
+                        </div>
+                    </fieldset>
+
+                </form>
+
+                <!-- INDICATIE -->
+                <aside class="lg:sticky lg:top-24 space-y-4">
+                    <div class="rounded-3xl border border-amber-500/30 bg-slate-900/75 backdrop-blur-xl p-6 space-y-5">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Jouw indicatie</span>
+                            <p class="text-[11px] text-slate-400 mt-1">Een richtbedrag op basis van je keuzes. De definitieve prijs
+                                maken we samen in het intakegesprek.</p>
+                        </div>
+
+                        <dl class="space-y-3 text-sm">
+                            <div class="flex items-center justify-between gap-3">
+                                <dt class="text-slate-400">Pakket</dt>
+                                <dd id="indicatie-pakket" class="font-semibold text-slate-300 text-right">—</dd>
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <dt class="text-slate-400">Eenmalig</dt>
+                                <dd id="indicatie-eenmalig" class="font-extrabold text-white">—</dd>
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <dt class="text-slate-400">Onderhoud</dt>
+                                <dd id="indicatie-onderhoud" class="font-semibold text-slate-300 text-right">—</dd>
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <dt class="text-slate-400">Per maand</dt>
+                                <dd id="indicatie-per-maand" class="font-extrabold text-teal-400">—</dd>
+                            </div>
+                        </dl>
+
+                        <div class="rounded-xl bg-slate-950/70 border border-slate-800 p-4 flex items-center justify-between gap-3">
+                            <span class="text-xs font-semibold text-slate-300">Totaal (12 maanden)</span>
+                            <span id="indicatie-totaal" class="text-xl font-extrabold text-amber-400">—</span>
+                        </div>
+
+                        <p class="text-[11px] text-slate-500 leading-relaxed">
+                            Alle prijzen excl. btw (21%). Werkelijk bedrag hangt af van aantal pagina's,
+                            teksten en gewenste functionaliteit.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-800/80 bg-slate-900/50 backdrop-blur-xl p-6 space-y-3">
+                        <h3 class="text-sm font-extrabold text-white">Liever eerst bellen?</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Liever eerst even sparren over wat je nodig hebt? Dat mag. Geen verkoopgesprek,
+                            gewoon een korte kennismaking.
+                        </p>
+                        <a href="mailto:info@wintrip.nl" class="inline-flex items-center gap-2 text-sm font-bold text-amber-400 hover:underline">
+                            info@wintrip.nl →
+                        </a>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- FAQ -->
+        <!-- ================================================================== -->
+        <section id="faq" class="rounded-3xl border border-slate-800/80 bg-slate-900/60 backdrop-blur-xl p-6 sm:p-10">
+            <div class="max-w-3xl mb-8">
+                <span class="text-xs font-bold uppercase tracking-wider text-violet-400">Veelgestelde vragen</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-semibold text-white mt-1">Goed om te weten</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <details class="group rounded-2xl border border-slate-800/90 bg-slate-950/60 p-5">
+                    <summary class="flex cursor-pointer items-start justify-between gap-4 list-none text-sm font-bold text-white">
+                        Wat kost een website voor mijn praktijk?
+                        <svg class="faq-chevron w-4 h-4 mt-0.5 shrink-0 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </summary>
+                    <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                        Vanaf € 495 excl. btw voor één pagina, € 895 voor een volledige praktijkwebsite en
+                        € 1.595 voor een uitgebreid aanbod. Onderhoud is optioneel en begint bij € 0.
+                    </p>
+                </details>
+
+                <details class="group rounded-2xl border border-slate-800/90 bg-slate-950/60 p-5">
+                    <summary class="flex cursor-pointer items-start justify-between gap-4 list-none text-sm font-bold text-white">
+                        Hoe lang duurt het?
+                        <svg class="faq-chevron w-4 h-4 mt-0.5 shrink-0 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </summary>
+                    <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                        Gemiddeld 3 tot 5 weken, afhankelijk van het pakket en hoe snel de teksten en
+                        foto's binnen zijn. De planning leggen we vooraf vast.
+                    </p>
+                </details>
+
+                <details class="group rounded-2xl border border-slate-800/90 bg-slate-950/60 p-5">
+                    <summary class="flex cursor-pointer items-start justify-between gap-4 list-none text-sm font-bold text-white">
+                        Kan ik de website zelf aanpassen?
+                        <svg class="faq-chevron w-4 h-4 mt-0.5 shrink-0 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </summary>
+                    <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                        Bij Helder en hoger krijg je een eigen beheeromgeving waarin je teksten, afbeeldingen
+                        en kleuren aanpast. Kies je Zelfbeheer, dan is dat helemaal aan jou.
+                    </p>
+                </details>
+
+                <details class="group rounded-2xl border border-slate-800/90 bg-slate-950/60 p-5">
+                    <summary class="flex cursor-pointer items-start justify-between gap-4 list-none text-sm font-bold text-white">
+                        Wat als ik al een website heb?
+                        <svg class="faq-chevron w-4 h-4 mt-0.5 shrink-0 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </summary>
+                    <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                        Dan kijken we of verbouwen of herbouwen slimmer is. Je huidige teksten en beelden
+                        nemen we mee, zodat je niet opnieuw begint.
+                    </p>
+                </details>
+
+                <details class="group rounded-2xl border border-slate-800/90 bg-slate-950/60 p-5">
+                    <summary class="flex cursor-pointer items-start justify-between gap-4 list-none text-sm font-bold text-white">
+                        Beheer je ook mijn domein en e-mail?
+                        <svg class="faq-chevron w-4 h-4 mt-0.5 shrink-0 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </summary>
+                    <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                        Dat kan. We regelen het domein, de hosting en je e-mailadressen en leggen het zo
+                        neer dat jij eigenaar blijft.
+                    </p>
+                </details>
+
+                <details class="group rounded-2xl border border-slate-800/90 bg-slate-950/60 p-5">
+                    <summary class="flex cursor-pointer items-start justify-between gap-4 list-none text-sm font-bold text-white">
+                        Kan ik betalen in termijnen?
+                        <svg class="faq-chevron w-4 h-4 mt-0.5 shrink-0 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </summary>
+                    <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                        Ja: 50% bij start en 50% bij oplevering. Onderhoudsabonnementen maandelijks,
+                        maandelijks opzegbaar.
+                    </p>
+                </details>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- SLOT CTA -->
+        <!-- ================================================================== -->
+        <section class="text-center max-w-3xl mx-auto space-y-6 rounded-3xl border border-amber-500/25 bg-gradient-to-b from-amber-500/10 via-slate-900/40 to-slate-900/40 backdrop-blur-xl p-8 sm:p-12">
+            <h2 class="text-3xl sm:text-4xl font-display font-semibold text-white leading-tight">
+                Klaar om een website te hebben die<br class="hidden sm:block"> echt bij je werk past?
+            </h2>
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl mx-auto">
+                Vul het formulier in, of mail gerust direct. We nemen binnen 24 uur contact op —
+                vrijblijvend en zonder verkooptrucs.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="#aanvraag" class="w-full sm:w-auto px-8 py-4 rounded-xl btn-gold hover:brightness-110 text-slate-950 font-extrabold text-sm shadow-xl shadow-amber-500/20 transition">
+                    Naar het aanvraagformulier →
+                </a>
+                <a href="mailto:info@wintrip.nl" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900/70 hover:bg-slate-800/80 text-slate-100 border border-slate-700/80 hover:border-slate-600 font-bold text-sm transition">
+                    info@wintrip.nl
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950/90 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 text-xs text-slate-400">
+            <div>
+                <div class="font-bold text-slate-200 text-sm">Philip Wintrip</div>
+                <div class="mt-1">Websites voor therapeuten, coaches en het spiritueel vlak</div>
+                <div class="mt-2">Alle prijzen excl. btw · KvK- en BTW-nummer op aanvraag</div>
+            </div>
+            <nav class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#voor-wie" class="hover:text-amber-400 font-medium">Voor wie</a>
+                <a href="#pakketten" class="hover:text-amber-400 font-medium">Pakketten</a>
+                <a href="#onderhoud" class="hover:text-amber-400 font-medium">Onderhoud</a>
+                <a href="#faq" class="hover:text-amber-400 font-medium">FAQ</a>
+                <span class="text-slate-700">|</span>
+                <a href="mailto:info@wintrip.nl" class="text-amber-400 hover:underline font-medium">info@wintrip.nl</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var ONTVANGST = 'info@wintrip.nl';
+            var form = document.getElementById('aanvraag-formulier');
+            var foutBox = document.getElementById('formulier-fout');
+            var succesBox = document.getElementById('verzonden-melding');
+
+            /* ---------------- Indicatie (live prijsberekening) ---------------- */
+            var euro = function (bedrag) {
+                return '€ ' + Number(bedrag).toLocaleString('nl-NL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+            };
+
+            function gekozen(naam) {
+                var el = form.querySelector('input[name="' + naam + '"]:checked');
+                return el ? el : null;
+            }
+
+            function updateIndicatie() {
+                var pakket = gekozen('pakket');
+                var onderhoud = gekozen('onderhoud');
+
+                var pLabel = document.getElementById('indicatie-pakket');
+                var pEenmalig = document.getElementById('indicatie-eenmalig');
+                var oLabel = document.getElementById('indicatie-onderhoud');
+                var oPerMaand = document.getElementById('indicatie-per-maand');
+                var totaal = document.getElementById('indicatie-totaal');
+
+                var eenmalig = pakket ? Number(pakket.dataset.prijs) : 0;
+                var perMaand = onderhoud ? Number(onderhoud.dataset.prijs) : 0;
+
+                pLabel.textContent = pakket ? pakket.value.split(' — ')[0] : '—';
+                pEenmalig.textContent = pakket ? euro(eenmalig) : '—';
+                oLabel.textContent = onderhoud ? onderhoud.value.split(' — ')[0] : '—';
+                oPerMaand.textContent = onderhoud ? euro(perMaand) + ' /mnd' : '—';
+                totaal.textContent = (pakket || onderhoud) ? euro(eenmalig + perMaand * 12) : '—';
+            }
+
+            if (form) {
+                form.addEventListener('change', function (e) {
+                    if (e.target.name === 'pakket' || e.target.name === 'onderhoud') {
+                        updateIndicatie();
+                    }
+                });
+                updateIndicatie();
+            }
+
+            /* ---------------- Knoppen in de pakket- & onderhoudskaarten ------- */
+            function kiesEnScroll(id) {
+                var radio = document.getElementById(id);
+                if (!radio) return;
+                radio.checked = true;
+                radio.dispatchEvent(new Event('change', { bubbles: true }));
+                var doel = document.getElementById('aanvraag');
+                if (doel) doel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            document.querySelectorAll('[data-kies-pakket]').forEach(function (knop) {
+                knop.addEventListener('click', function () {
+                    kiesEnScroll('pakket-' + knop.dataset.kiesPakket);
+                });
+            });
+
+            document.querySelectorAll('[data-kies-onderhoud]').forEach(function (knop) {
+                knop.addEventListener('click', function () {
+                    kiesEnScroll('onderhoud-' + knop.dataset.kiesOnderhoud);
+                });
+            });
+
+            /* ---------------- Foutmelding ------------------------------------- */
+            function verbergFout() {
+                if (!foutBox) return;
+                foutBox.classList.add('hidden');
+            }
+
+            /* Toont de fout én een klikbare mailto-link als terugvaloptie. */
+            function toonVerzendfout(bericht) {
+                if (!foutBox) return;
+                foutBox.textContent = bericht;
+                var link = document.getElementById('mailto-verzenden');
+                if (!link) {
+                    link = document.createElement('a');
+                    link.id = 'mailto-verzenden';
+                    link.className = 'underline font-semibold ml-1 whitespace-nowrap';
+                    link.href = 'mailto:' + ONTVANGST;
+                    link.textContent = 'Open je e-mailprogramma';
+                    foutBox.appendChild(link);
+                }
+                foutBox.classList.remove('hidden');
+                foutBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            /* ---------------- Tekst van de aanvraag samenstellen -------------- */
+            function veldWaarde(naam) {
+                var el = form.querySelector('[name="' + naam + '"]');
+                return el && el.value ? el.value.trim() : '';
+            }
+
+            function MailBody() {
+                var regels = [];
+                var push = function (kop, waarde) {
+                    regels.push(kop + ': ' + (waarde || '-'));
+                };
+
+                regels.push('NIEUWE WEBSITE-AANVRAAG');
+                regels.push('Ontvangen: ' + new Date().toLocaleString('nl-NL'));
+                regels.push('');
+
+                regels.push('CONTACT');
+                push('Naam', veldWaarde('naam'));
+                push('E-mail', veldWaarde('email'));
+                push('Telefoon', veldWaarde('telefoon'));
+                push('Praktijk / organisatie', veldWaarde('organisatie'));
+                push('Huidige website', veldWaarde('huidige_website'));
+                regels.push('');
+
+                regels.push('PROJECT');
+                push('Type website', veldWaarde('type_website'));
+                push('Gewenst uiterlijk', veldWaarde('uiterlijk'));
+                push('Kleur', veldWaarde('kleuren'));
+                push('Pakket', veldWaarde('pakket'));
+                push('Onderhoud', veldWaarde('onderhoud'));
+                push('Gewenste startdatum', veldWaarde('startdatum'));
+
+                var functies = Array.prototype.slice
+                    .call(form.querySelectorAll('input[name="functionaliteiten[]"]:checked'))
+                    .map(function (el) { return el.value; });
+                push('Gewenste functionaliteiten', functies.join(', '));
+                regels.push('');
+
+                regels.push('OVER JOUW WERK');
+                regels.push(veldWaarde('werkomschrijving') || '-');
+                regels.push('');
+
+                var bericht = veldWaarde('bericht');
+                if (bericht) {
+                    regels.push('BERICHT');
+                    regels.push(bericht);
+                    regels.push('');
+                }
+
+                regels.push('--');
+                regels.push('Verzonden via de website van Philip Wintrip.');
+                return regels.join('\n');
+            }
+
+            function mailtoFallback() {
+                var onderwerp = 'Website-aanvraag — ' + (veldWaarde('naam') || 'nieuwe aanvraag');
+                var body = MailBody();
+                window.location.href = 'mailto:' + ONTVANGST +
+                    '?subject=' + encodeURIComponent(onderwerp) +
+                    '&body=' + encodeURIComponent(body);
+            }
+
+            /* ---------------- Versturen ---------------------------------------- */
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    verbergFout();
+
+                    if (!form.reportValidity()) return;
+
+                    var knop = form.querySelector('button[type="submit"]');
+                    var origineel = knop.innerHTML;
+                    knop.disabled = true;
+                    knop.innerHTML = '<span>Versturen…</span>';
+
+                    var data = new FormData(form);
+
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: data,
+                        headers: { 'Accept': 'application/json' },
+                        credentials: 'same-origin'
+                    })
+                        .then(function (respons) {
+                            return respons.json().then(function (json) {
+                                return { ok: respons.ok, json: json };
+                            }).catch(function () {
+                                return { ok: false, json: { fout: 'Onleesbaar antwoord van de server.' } };
+                            });
+                        })
+                        .then(function (result) {
+                            if (result.ok && result.json.ok) {
+                                form.reset();
+                                updateIndicatie();
+                                if (succesBox) {
+                                    succesBox.classList.remove('hidden');
+                                    succesBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                }
+                            } else {
+                                var fout = (result.json && result.json.fout) ? result.json.fout : 'Verzenden mislukt.';
+                                toonVerzendfout(fout + ' Je kunt je aanvraag ook direct mailen naar ' + ONTVANGST + ': ');
+                            }
+                        })
+                        .catch(function () {
+                            toonVerzendfout('We konden de server niet bereiken. Je kunt je aanvraag ook direct mailen naar ' + ONTVANGST + ': ');
+                        })
+                        .then(function () {
+                            knop.disabled = false;
+                            knop.innerHTML = origineel;
+                        });
+                });
+            }
+
+            /* ---------------- Melding na verzenden (zonder JavaScript) -------- */
+            var params = new URLSearchParams(window.location.search);
+            if (params.get('verzonden') === '1' && succesBox) {
+                succesBox.classList.remove('hidden');
+                succesBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        })();
+    </script>
+
+</body>
+</html>
