@@ -6,12 +6,12 @@
   <a href="https://philip-wintrip.com/web/"><img src="https://img.shields.io/badge/Live%20site-philip--wintrip.com%2Fweb%2F-amber-500?style=flat-square" alt="Live site"></a>
   <img src="https://img.shields.io/badge/PHP-8.1%2B-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP">
   <img src="https://img.shields.io/badge/Tailwind_CSS-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
-  <img src="https://img.shields.io/badge/Licht-donker-111827?style=flat-square" alt="Dark mode">
+  <img src="https://img.shields.io/badge/4%20pagina's-111827?style=flat-square" alt="Vier pagina's">
 </p>
 
 # Website-aanvraag — spiritueel vlak
 
-Landingspagina met **aanvraagformulier** voor [Philip Wintrip](https://philip-wintrip.com/).
+Landingspagina's met **aanvraagformulier** voor [Philip Wintrip](https://philip-wintrip.com/).
 Bezoekers vullen één formulier in — contactgegevens, type website, gewenst uiterlijk,
 kleur, functionaliteiten, websitepakket en onderhoudsabonnement — en de aanvraag komt
 binnen bij **info@wintrip.nl**.
@@ -24,6 +24,19 @@ serif-koppen voor de doelgroep in het spiritueel vlak.
 🌐 **Live:** https://philip-wintrip.com/web/
 
 ---
+
+## Pagina's
+
+| Pagina | Bestand | Inhoud |
+|---|---|---|
+| Home | `index.html` | Hero, doelgroep, werkwijze, pakketten in het kort, CTA |
+| Pakketten & prijzen | `pakketten.html` | De vier websitepakketten en de vier onderhoudsabonnementen |
+| Aanvraag | `aanvraag.html` | Het volledige formulier met live prijsindicatie |
+| FAQ | `faq.html` | Veelgestelde vragen en contact |
+
+De keuzes op de pakkettenpagina worden meegenomen naar het formulier: klik je op
+*“Kies dit pakket”*, dan opent het formulier met die keuze al ingevuld
+(`aanvraag.html?pakket=helder&onderhoud=zorgplus`).
 
 ## Wat de bezoeker kiest
 
@@ -62,6 +75,7 @@ Onderhoudsabonnement (per maand, maandelijks opzegbaar):
 ## Techniek
 
 - **HTML5 + Tailwind CSS** (Play-CDN, geen build-stap) — zelfde aanpak als de `landingspagina`-repo
+- **Vier statische pagina's** met gedeelde `assets/site.css` en `assets/site.js` (actieve navigatie, mobiel menu)
 - **PHP-mailhandler** (`verzenden.php`) met validatie, honeypot tegen bots en `Reply-To` op de bezoeker
 - **Progressieve fallback**: mét JavaScript JSON-antwoord, zonder JavaScript een redirect naar `?verzonden=1`
 - **Geen database** — de aanvraag wordt uitsluitend per e-mail verwerkt (AVG-vriendelijk)
@@ -71,17 +85,29 @@ Onderhoudsabonnement (per maand, maandelijks opzegbaar):
 
 ```text
 web/
-├── index.html              # De pagina + het aanvraagformulier
+├── index.html              # Home: hero, doelgroep, werkwijze, pakketten in het kort
+├── pakketten.html          # Alle pakketten en onderhoudsabonnementen
+├── aanvraag.html           # Het aanvraagformulier + live prijsindicatie
+├── faq.html                # Veelgestelde vragen
 ├── verzenden.php           # PHP-mailhandler → info@wintrip.nl
 ├── index.php               # Wrapper voor hosts die alleen .php serveren
+├── check-live.sh           # Controleert na een upload of alles online staat
 ├── assets/
+│   ├── site.css            # Gedeelde stijlen
+│   ├── site.js             # Actieve navigatie, mobiel menu, jaartal
+│   ├── formulier.js        # Formulierlogica, live indicatie, keuze-overdracht
 │   ├── hero-bg.svg         # Gelaagde donkere achtergrond (SVG)
 │   ├── hero-banner.png     # Banner voor deze README
+│   ├── pakketten-preview.png
 │   └── formulier-preview.png
 └── README.md
 ```
 
-## Het formulier in beeld
+## De pagina's in beeld
+
+<p align="center">
+  <img src="assets/pakketten-preview.png" alt="Pakkettenpagina met de vier websitepakketten" width="100%">
+</p>
 
 <p align="center">
   <img src="assets/formulier-preview.png" alt="Het aanvraagformulier met uiterlijk-, kleur- en prijskeuze" width="100%">
@@ -93,6 +119,20 @@ web/
 1. Upload de bestanden naar de webmap van de site (bv. `/web/` op `philip-wintrip.com`).
 2. Zorg dat PHP actief is en dat `mail()` werkt (SMTP/MTA op de host).
 3. Test het formulier en controleer de mailbox van `info@wintrip.nl`.
+4. Controleer of alles online staat:
+
+```bash
+./check-live.sh                      # standaard: https://philip-wintrip.com/web/
+./check-live.sh https://jouwdomein.nl/web/
+```
+
+Het script controleert elke pagina en elk asset en meldt wat er nog ontbreekt.
+
+**Uploadtips (FileZilla)** — wijs het lokale paneel naar het *echte* pad
+`~/Library/CloudStorage/OneDrive-UMCUtrecht/Documenten/Web` (`~/Documents` is een
+symlink naar OneDrive) en vernieuw de bestandslijst (Cmd+R) vóór het uploaden, anders
+kunnen nieuwe bestanden ontbreken in de lijst. De bestanden op de server horen
+rechten `644` te hebben, anders kan Apache ze niet lezen.
 
 **Afzender aanpassen (belangrijk)** — standaard verstuurt `verzenden.php` met
 `From: website@wintrip.nl` en `Reply-To:` het adres van de bezoeker. Draait de site op

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth h-full bg-slate-950 text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vraag je website aan — Philip Wintrip</title>
+    <meta name="description" content="Vul het aanvraagformulier in: contactgegevens, type website, uiterlijk, kleur, functionaliteiten, pakket en onderhoudsabonnement. Reactie binnen 24 uur.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Vraag je website aan — Philip Wintrip">
+    <meta property="og:description" content="Vul het aanvraagformulier in: contactgegevens, type website, uiterlijk, kleur, functionaliteiten, pakket en onderhoudsabonnement. Reactie binnen 24 uur.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23f59e0b'>✦</text></svg>">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18546508397"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18546508397');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="min-h-full font-sans antialiased selection:bg-amber-500/30 selection:text-amber-200 relative overflow-x-hidden">
+
+    <!-- Professionele gelaagde achtergrond (Hero SVG + Ambient Glows + Grid) -->
+    <div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+        <img src="assets/hero-bg.svg" alt="" aria-hidden="true" fetchpriority="high"
+             class="w-full h-full object-cover opacity-60 mix-blend-luminosity scale-105">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
+        <div class="absolute inset-0 bg-tech-grid"></div>
+        <!-- Ambient Violet (rechts) & Goud (links) lichtaccenten -->
+        <div class="absolute -top-32 -right-24 w-[38rem] h-[38rem] rounded-full bg-violet-600/15 blur-[140px]"></div>
+        <div class="absolute bottom-0 -left-32 w-[36rem] h-[36rem] rounded-full bg-amber-500/10 blur-[140px]"></div>
+        <div class="absolute top-1/3 left-1/4 w-[28rem] h-[28rem] rounded-full bg-teal-500/10 blur-[130px]"></div>
+    </div>
+
+    <!-- Top Navigatiebalk -->
+    <header class="border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-xl sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 py-4 flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-3.5 group shrink-0">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500/25 via-slate-900 to-violet-600/25 border border-slate-700/80 group-hover:border-amber-400/60 text-amber-300 font-extrabold tracking-tight shadow-inner transition">
+                    PW
+                </span>
+                <div class="min-w-0">
+                    <span class="text-base sm:text-lg font-extrabold tracking-tight text-white block leading-none truncate">
+                        Philip Wintrip <span class="hidden sm:inline text-amber-400 font-semibold text-xs sm:text-sm ml-1">Websites voor het spiritueel vlak</span>
+                    </span>
+                    <span class="text-[11px] text-slate-400 hidden sm:inline-block mt-1">
+                        Rustig, vertrouwenwekkend en helemaal van jou
+                    </span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-2 sm:gap-3 text-xs font-semibold">
+                <a href="index.html" data-nav="index" class="nav-link px-3.5 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition">Home</a>
+                <a href="pakketten.html" data-nav="pakketten" class="nav-link px-3.5 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition">Pakketten &amp; prijzen</a>
+                <a href="faq.html" data-nav="faq" class="nav-link px-3.5 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition">FAQ</a>
+                <a href="aanvraag.html" class="px-3 sm:px-3.5 py-2 rounded-xl btn-gold text-slate-950 font-extrabold shadow-lg shadow-amber-500/15 hover:shadow-amber-500/30 transition whitespace-nowrap">
+                    <span class="text-[11px] sm:text-xs">Vraag je website aan</span>
+                </a>
+            </nav>
+
+            <!-- Mobiel menu -->
+            <div class="md:hidden flex items-center gap-2">
+                <a href="aanvraag.html" class="px-3 py-2 rounded-xl btn-gold text-slate-950 font-extrabold text-[11px] shadow-lg shadow-amber-500/15 transition whitespace-nowrap">
+                    Aanvragen
+                </a>
+                <button type="button" id="menu-knop" aria-expanded="false" aria-controls="mobiel-menu" aria-label="Menu openen"
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700/80 bg-slate-900/70 text-slate-200">
+                    <svg id="menu-icoon-open" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                    <svg id="menu-icoon-sluit" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobiel menu-paneel -->
+        <div id="mobiel-menu" class="md:hidden hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl">
+            <nav class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-1 text-sm font-semibold">
+                <a href="index.html" data-nav="index" class="nav-link px-3 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition">Home</a>
+                <a href="pakketten.html" data-nav="pakketten" class="nav-link px-3 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition">Pakketten &amp; prijzen</a>
+                <a href="faq.html" data-nav="faq" class="nav-link px-3 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition">Veelgestelde vragen</a>
+                <a href="aanvraag.html" class="mt-2 px-4 py-3 rounded-xl btn-gold text-slate-950 font-extrabold text-center transition">Vraag je website aan</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-24 space-y-20">
+
+        <!-- AANVRAAGFORMULIER -->
+        <!-- ================================================================== -->
+        <section id="aanvraag" class="space-y-8 scroll-mt-24">
+            <div class="max-w-3xl">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Aanvraag</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-semibold text-white mt-1">
+                    Vertel ons over jouw website
+                </h2>
+                <p class="text-sm sm:text-base text-slate-400 mt-2 leading-relaxed">
+                    Vul het formulier in — je hoeft niet alles meteen te weten. We sturen binnen 24 uur een
+                    reactie met een offerte op maat. Je gegevens gaan alleen naar
+                    <a href="mailto:info@wintrip.nl" class="text-amber-400 hover:underline font-semibold">info@wintrip.nl</a>.
+                </p>
+            </div>
+
+            <!-- Succesmelding (na verzenden) -->
+            <div id="verzonden-melding" class="hidden rounded-2xl border border-teal-500/40 bg-teal-500/10 p-6 sm:p-8">
+                <div class="flex items-start gap-4">
+                    <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-500/20 text-teal-300 border border-teal-500/40">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>
+                    </span>
+                    <div>
+                        <h3 class="text-lg font-extrabold text-white">Je aanvraag is verzonden</h3>
+                        <p class="text-sm text-slate-300 mt-1 leading-relaxed">
+                            Dank je wel. Je aanvraag staat onder onze aandacht; binnen 24 uur ontvang je een reactie
+                            op <strong class="text-white">info@wintrip.nl</strong> of direct op het opgegeven e-mailadres.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-start">
+
+                <!-- FORMULIER -->
+                <form id="aanvraag-formulier" action="verzenden.php" method="post"
+                      class="lg:col-span-2 rounded-3xl border border-slate-800/90 bg-slate-900/65 backdrop-blur-xl p-5 sm:p-8 space-y-9">
+
+                    <!-- Honeypot tegen bots -->
+                    <div class="hidden" aria-hidden="true">
+                        <label for="bedrijfswebsite_hp">Laat dit veld leeg</label>
+                        <input type="text" id="bedrijfswebsite_hp" name="bedrijfswebsite_hp" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <!-- 1. Contactgegevens -->
+                    <fieldset class="space-y-5">
+                        <legend class="flex items-center gap-3 w-full">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">1</span>
+                            <span class="text-base font-extrabold text-white">Contactgegevens</span>
+                        </legend>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="field-label" for="naam">Naam <span class="text-amber-400">*</span></label>
+                                <input class="field" type="text" id="naam" name="naam" required autocomplete="name" placeholder="Voor- en achternaam">
+                            </div>
+                            <div>
+                                <label class="field-label" for="email">E-mailadres <span class="text-amber-400">*</span></label>
+                                <input class="field" type="email" id="email" name="email" required autocomplete="email" placeholder="naam@voorbeeld.nl">
+                            </div>
+                            <div>
+                                <label class="field-label" for="telefoon">Telefoon <span class="text-slate-500 font-normal">(optioneel)</span></label>
+                                <input class="field" type="tel" id="telefoon" name="telefoon" autocomplete="tel" placeholder="06 12 34 56 78">
+                            </div>
+                            <div>
+                                <label class="field-label" for="organisatie">Praktijk of organisatie</label>
+                                <input class="field" type="text" id="organisatie" name="organisatie" placeholder="Bijv. Praktijk De Buitenrust">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="field-label" for="huidige_website">Huidige website <span class="text-slate-500 font-normal">(optioneel)</span></label>
+                                <input class="field" type="text" id="huidige_website" name="huidige_website" placeholder="www.voorbeeld.nl">
+                                <p class="field-hint">Staat er al een site? Dan kijken we of we die kunnen herbouwen of uitbreiden.</p>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- 2. Jouw werk -->
+                    <fieldset class="space-y-5">
+                        <legend class="flex items-center gap-3 w-full border-t border-slate-800/80 pt-8">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">2</span>
+                            <span class="text-base font-extrabold text-white">Jouw werk</span>
+                        </legend>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="field-label" for="type_website">Type website <span class="text-amber-400">*</span></label>
+                                <select class="field" id="type_website" name="type_website" required>
+                                    <option value="">Kies een type…</option>
+                                    <option>Praktijkwebsite (therapie, coaching)</option>
+                                    <option>Cursussen &amp; lessen</option>
+                                    <option>Retreats &amp; evenementen</option>
+                                    <option>Webshop met bewustzijn-producten</option>
+                                    <option>Landingspagina / campagne</option>
+                                    <option>Studie- of communityportaal</option>
+                                    <option>Persoonlijk portfolio</option>
+                                    <option>Ik weet het nog niet</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="field-label" for="startdatum">Gewenste startdatum <span class="text-slate-500 font-normal">(optioneel)</span></label>
+                                <input class="field" type="date" id="startdatum" name="startdatum">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="field-label" for="werkomschrijving">Vertel kort over je werk <span class="text-amber-400">*</span></label>
+                            <textarea class="field" id="werkomschrijving" name="werkomschrijving" rows="4" required
+                                      placeholder="Wat doe je, voor wie, en wat wil je dat mensen voelen als ze op je site komen?"></textarea>
+                            <p class="field-hint">Twee of drie zinnen is genoeg. Hoe persoonlijker, hoe beter we het verhaal kunnen vertalen naar je site.</p>
+                        </div>
+                    </fieldset>
+
+                    <!-- 3. Uiterlijk -->
+                    <fieldset class="space-y-5">
+                        <legend class="flex items-center gap-3 w-full border-t border-slate-800/80 pt-8">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">3</span>
+                            <span class="text-base font-extrabold text-white">Uiterlijk</span>
+                        </legend>
+
+                        <p class="text-xs text-slate-400">Welk gevoel moet de website uitstralen? Kies één richting — in het intakegesprek bepalen we samen de details.</p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Uiterlijk 1 -->
+                            <div class="choice">
+                                <input type="radio" id="uiterlijk-minimalistisch" name="uiterlijk" value="Minimalistisch &amp; rustig" class="sr-only" required>
+                                <label for="uiterlijk-minimalistisch" class="block cursor-pointer rounded-2xl border border-slate-800 bg-slate-950/60 p-4 transition hover:border-slate-600">
+                                    <div class="h-20 rounded-xl bg-gradient-to-br from-stone-200 to-stone-400/70 p-3 space-y-1.5">
+                                        <div class="h-1.5 w-1/2 rounded-full bg-stone-600/60"></div>
+                                        <div class="h-1 w-full rounded-full bg-stone-500/40"></div>
+                                        <div class="h-1 w-4/5 rounded-full bg-stone-500/40"></div>
+                                    </div>
+                                    <div class="mt-3 flex items-start justify-between gap-3">
+                                        <div>
+                                            <div class="text-sm font-bold text-white">Minimalistisch &amp; rustig</div>
+                                            <p class="text-[11px] text-slate-400 mt-0.5">Veel witruimte, zachte typografie, tekst staat centraal.</p>
+                                        </div>
+                                        <span class="choice-hint text-[10px] text-slate-600 shrink-0">kies</span>
+                                        <span class="choice-check text-[10px] text-amber-400 font-bold shrink-0">✓ gekozen</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Uiterlijk 2 -->
+                            <div class="choice">
+                                <input type="radio" id="uiterlijk-warm" name="uiterlijk" value="Warm &amp; verzorgend" class="sr-only">
+                                <label for="uiterlijk-warm" class="block cursor-pointer rounded-2xl border border-slate-800 bg-slate-950/60 p-4 transition hover:border-slate-600">
+                                    <div class="h-20 rounded-xl bg-gradient-to-br from-amber-100 to-rose-200/70 p-3 space-y-1.5">
+                                        <div class="h-1.5 w-2/5 rounded-full bg-amber-700/50"></div>
+                                        <div class="h-1 w-full rounded-full bg-amber-800/30"></div>
+                                        <div class="h-1 w-3/4 rounded-full bg-amber-800/30"></div>
+                                    </div>
+                                    <div class="mt-3 flex items-start justify-between gap-3">
+                                        <div>
+                                            <div class="text-sm font-bold text-white">Warm &amp; verzorgend</div>
+                                            <p class="text-[11px] text-slate-400 mt-0.5">Aardetinten, warme foto's, uitnodigend en koesterend.</p>
+                                        </div>
+                                        <span class="choice-hint text-[10px] text-slate-600 shrink-0">kies</span>
+                                        <span class="choice-check text-[10px] text-amber-400 font-bold shrink-0">✓ gekozen</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Uiterlijk 3 -->
+                            <div class="choice">
+                                <input type="radio" id="uiterlijk-mystiek" name="uiterlijk" value="Mystiek &amp; intiem" class="sr-only">
+                                <label for="uiterlijk-mystiek" class="block cursor-pointer rounded-2xl border border-slate-800 bg-slate-950/60 p-4 transition hover:border-slate-600">
+                                    <div class="h-20 rounded-xl bg-gradient-to-br from-violet-950 via-indigo-900 to-slate-950 p-3 space-y-1.5 relative overflow-hidden">
+                                        <div class="absolute top-2 right-3 h-1.5 w-1.5 rounded-full bg-violet-200"></div>
+                                        <div class="absolute top-5 right-6 h-1 w-1 rounded-full bg-amber-200/70"></div>
+                                        <div class="h-1.5 w-1/3 rounded-full bg-violet-200/60"></div>
+                                        <div class="h-1 w-full rounded-full bg-violet-300/30"></div>
+                                        <div class="h-1 w-2/3 rounded-full bg-violet-300/30"></div>
+                                    </div>
+                                    <div class="mt-3 flex items-start justify-between gap-3">
+                                        <div>
+                                            <div class="text-sm font-bold text-white">Mystiek &amp; intiem</div>
+                                            <p class="text-[11px] text-slate-400 mt-0.5">Donkere tinten, sterren, sfeervol en bijzonder.</p>
+                                        </div>
+                                        <span class="choice-hint text-[10px] text-slate-600 shrink-0">kies</span>
+                                        <span class="choice-check text-[10px] text-amber-400 font-bold shrink-0">✓ gekozen</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Uiterlijk 4 -->
+                            <div class="choice">
+                                <input type="radio" id="uiterlijk-modern" name="uiterlijk" value="Modern &amp; helder" class="sr-only">
+                                <label for="uiterlijk-modern" class="block cursor-pointer rounded-2xl border border-slate-800 bg-slate-950/60 p-4 transition hover:border-slate-600">
+                                    <div class="h-20 rounded-xl bg-gradient-to-br from-white to-slate-300 p-3 space-y-1.5">
+                                        <div class="h-2.5 w-1/3 rounded bg-slate-800/80"></div>
+                                        <div class="h-1 w-full rounded-full bg-slate-500/50"></div>
+                                        <div class="h-1 w-5/6 rounded-full bg-slate-500/50"></div>
+                                        <div class="h-3 w-1/4 rounded bg-slate-800/70"></div>
+                                    </div>
+                                    <div class="mt-3 flex items-start justify-between gap-3">
+                                        <div>
+                                            <div class="text-sm font-bold text-white">Modern &amp; helder</div>
+                                            <p class="text-[11px] text-slate-400 mt-0.5">Strak, veel wit, krachtige typografie.</p>
+                                        </div>
+                                        <span class="choice-hint text-[10px] text-slate-600 shrink-0">kies</span>
+                                        <span class="choice-check text-[10px] text-amber-400 font-bold shrink-0">✓ gekozen</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- 4. Kleuren -->
+                    <fieldset class="space-y-5">
+                        <legend class="flex items-center gap-3 w-full border-t border-slate-800/80 pt-8">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">4</span>
+                            <span class="text-base font-extrabold text-white">Kleur</span>
+                        </legend>
+
+                        <p class="text-xs text-slate-400">Kies een basiskleur. We bouwen de paletten daaromheen (achtergrond, accenten, typografie).</p>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <div class="choice">
+                                <input type="radio" id="kleur-aards" name="kleuren" value="Aards &amp; gedempt" class="sr-only" required>
+                                <label for="kleur-aards" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#8a7f6d,#4b4438)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Aards &amp; gedempt</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-zand" name="kleuren" value="Zand &amp; warm goud" class="sr-only">
+                                <label for="kleur-zand" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#e8c37a,#b4823a)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Zand &amp; warm goud</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-salie" name="kleuren" value="Salie &amp; zacht groen" class="sr-only">
+                                <label for="kleur-salie" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#a8c1a4,#5f7a5c)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Salie &amp; zacht groen</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-bos" name="kleuren" value="Smaragd &amp; diep bos" class="sr-only">
+                                <label for="kleur-bos" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#3f9e7e,#12402f)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Smaragd &amp; diep bos</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-lavendel" name="kleuren" value="Lavendel &amp; violet" class="sr-only">
+                                <label for="kleur-lavendel" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#b9a6ea,#4c3a86)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Lavendel &amp; violet</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-nacht" name="kleuren" value="Nachtblauw &amp; sterren" class="sr-only">
+                                <label for="kleur-nacht" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#5f77c9,#151c38)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Nachtblauw &amp; sterren</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-bloesem" name="kleuren" value="Bloesemroze" class="sr-only">
+                                <label for="kleur-bloesem" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#f0b6c8,#a35a72)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Bloesemroze</span>
+                                </label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="kleur-mono" name="kleuren" value="Monochroom &amp; houtskool" class="sr-only">
+                                <label for="kleur-mono" class="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-3 py-2.5 transition hover:border-slate-600">
+                                    <span class="h-7 w-7 shrink-0 rounded-full border border-white/15" style="background:linear-gradient(135deg,#6b7280,#18181b)"></span>
+                                    <span class="text-[11px] font-semibold text-slate-200 leading-tight">Monochroom &amp; houtskool</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- 5. Functionaliteiten -->
+                    <fieldset class="space-y-5">
+                        <legend class="flex items-center gap-3 w-full border-t border-slate-800/80 pt-8">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">5</span>
+                            <span class="text-base font-extrabold text-white">Wat moet de site kunnen?</span>
+                        </legend>
+
+                        <p class="text-xs text-slate-400">Vink aan wat je wilt. Niets aangevinkt is ook goed — we denken mee.</p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Contactformulier" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Contactformulier</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Online afspraakplanner" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Online afspraakplanner</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Nieuwsbrief" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Nieuwsbrief</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Webshop of donatie" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Webshop of donatie</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Cursus- of videotraining" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Cursus- of videotraining</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Ledenlogin of community" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Ledenlogin of community</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Meertalig (NL / EN)" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Meertalig (NL / EN)</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Blog of nieuws" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Blog of nieuws</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Eigen domein en e-mail" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Eigen domein en e-mail</span>
+                            </label>
+                            <label class="check-opt flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 cursor-pointer transition hover:border-slate-600">
+                                <input type="checkbox" name="functionaliteiten[]" value="Privacy- en AVG-teksten" class="mt-0.5 h-4 w-4">
+                                <span class="text-sm text-slate-200">Privacy- en AVG-teksten</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- 6. Pakket & onderhoud -->
+                    <fieldset class="space-y-7">
+                        <legend class="flex items-center gap-3 w-full border-t border-slate-800/80 pt-8">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">6</span>
+                            <span class="text-base font-extrabold text-white">Pakket &amp; onderhoud</span>
+                        </legend>
+
+                        <div>
+                            <span class="field-label">Websitepakket <span class="text-amber-400">*</span></span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="choice">
+                                    <input type="radio" id="pakket-essentieel" name="pakket" value="Essentieel — € 495" data-prijs="495" class="sr-only" required>
+                                    <label for="pakket-essentieel" class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Essentieel</span>
+                                        <span class="text-sm font-extrabold text-white">€ 495</span>
+                                    </label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="pakket-helder" name="pakket" value="Helder — € 895" data-prijs="895" class="sr-only">
+                                    <label for="pakket-helder" class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Helder <span class="text-[10px] text-amber-400 font-bold">meest gekozen</span></span>
+                                        <span class="text-sm font-extrabold text-white">€ 895</span>
+                                    </label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="pakket-uitgelicht" name="pakket" value="Uitgelicht — € 1.595" data-prijs="1595" class="sr-only">
+                                    <label for="pakket-uitgelicht" class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Uitgelicht</span>
+                                        <span class="text-sm font-extrabold text-white">€ 1.595</span>
+                                    </label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="pakket-maatwerk" name="pakket" value="Maatwerk — vanaf € 2.395" data-prijs="2395" class="sr-only">
+                                    <label for="pakket-maatwerk" class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Maatwerk</span>
+                                        <span class="text-sm font-extrabold text-white">vanaf € 2.395</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="field-label">Onderhoudsabonnement <span class="text-amber-400">*</span></span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="choice">
+                                    <input type="radio" id="onderhoud-zelfbeheer" name="onderhoud" value="Zelfbeheer — € 0 per maand" data-prijs="0" class="sr-only" required>
+                                    <label for="onderhoud-zelfbeheer" class="choice-teal flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Zelfbeheer</span>
+                                        <span class="text-sm font-extrabold text-white">€ 0</span>
+                                    </label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="onderhoud-zorgbasis" name="onderhoud" value="Zorgbasis — € 25 per maand" data-prijs="25" class="sr-only">
+                                    <label for="onderhoud-zorgbasis" class="choice-teal flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Zorgbasis</span>
+                                        <span class="text-sm font-extrabold text-white">€ 25</span>
+                                    </label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="onderhoud-zorgplus" name="onderhoud" value="Zorg plus — € 49 per maand" data-prijs="49" class="sr-only">
+                                    <label for="onderhoud-zorgplus" class="choice-teal flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Zorg plus <span class="text-[10px] text-teal-300 font-bold">meest gekozen</span></span>
+                                        <span class="text-sm font-extrabold text-white">€ 49</span>
+                                    </label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="onderhoud-zorggroei" name="onderhoud" value="Zorg groei — € 89 per maand" data-prijs="89" class="sr-only">
+                                    <label for="onderhoud-zorggroei" class="choice-teal flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 transition hover:border-slate-600">
+                                        <span class="text-sm font-semibold text-slate-200">Zorg groei</span>
+                                        <span class="text-sm font-extrabold text-white">€ 89</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- 7. Bericht & verzenden -->
+                    <fieldset class="space-y-5">
+                        <legend class="flex items-center gap-3 w-full border-t border-slate-800/80 pt-8">
+                            <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-xs font-extrabold border border-amber-500/30">7</span>
+                            <span class="text-base font-extrabold text-white">Versturen</span>
+                        </legend>
+
+                        <div>
+                            <label class="field-label" for="bericht">Nog iets te zeggen? <span class="text-slate-500 font-normal">(optioneel)</span></label>
+                            <textarea class="field" id="bericht" name="bericht" rows="4"
+                                      placeholder="Bijvoorbeeld: ik heb al een logo, ik wil graag een tekstenlijst, of ik heb een vaste deadline."></textarea>
+                        </div>
+
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" id="privacy" name="privacy" value="akkoord" required class="mt-0.5 h-4 w-4">
+                            <span class="text-xs text-slate-400 leading-relaxed">
+                                Ik ga akkoord dat mijn gegevens worden gebruikt om mijn aanvraag te beantwoorden.
+                                Mijn gegevens worden niet verkocht of aan derden verstrekt. <span class="text-amber-400">*</span>
+                            </span>
+                        </label>
+
+                        <div id="formulier-fout" class="hidden rounded-xl border border-rose-500/40 bg-rose-500/10 px-4 py-3 text-xs text-rose-200"></div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
+                            <button type="submit"
+                                    class="w-full sm:w-auto px-8 py-4 rounded-xl btn-gold hover:brightness-110 text-slate-950 font-extrabold text-sm flex items-center justify-center gap-2 shadow-xl shadow-amber-500/20 transition whitespace-nowrap">
+                                <span>Verstuur mijn aanvraag</span>
+                                <span>→</span>
+                            </button>
+                            <p class="text-[11px] text-slate-500 leading-relaxed">
+                                Je aanvraag komt binnen bij <a href="mailto:info@wintrip.nl" class="text-slate-300 hover:text-amber-400">info@wintrip.nl</a>.
+                                Reactie binnen 24 uur · je gegevens blijven privé
+                            </p>
+                        </div>
+                    </fieldset>
+
+                </form>
+
+                <!-- INDICATIE -->
+                <aside class="lg:sticky lg:top-24 space-y-4">
+                    <div class="rounded-3xl border border-amber-500/30 bg-slate-900/75 backdrop-blur-xl p-6 space-y-5">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Jouw indicatie</span>
+                            <p class="text-[11px] text-slate-400 mt-1">Een richtbedrag op basis van je keuzes. De definitieve prijs
+                                maken we samen in het intakegesprek.</p>
+                        </div>
+
+                        <dl class="space-y-3 text-sm">
+                            <div class="flex items-center justify-between gap-3">
+                                <dt class="text-slate-400">Pakket</dt>
+                                <dd id="indicatie-pakket" class="font-semibold text-slate-300 text-right">—</dd>
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <dt class="text-slate-400">Eenmalig</dt>
+                                <dd id="indicatie-eenmalig" class="font-extrabold text-white">—</dd>
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <dt class="text-slate-400">Onderhoud</dt>
+                                <dd id="indicatie-onderhoud" class="font-semibold text-slate-300 text-right">—</dd>
+                            </div>
+                            <div class="flex items-center justify-between gap-3">
+                                <dt class="text-slate-400">Per maand</dt>
+                                <dd id="indicatie-per-maand" class="font-extrabold text-teal-400">—</dd>
+                            </div>
+                        </dl>
+
+                        <div class="rounded-xl bg-slate-950/70 border border-slate-800 p-4 flex items-center justify-between gap-3">
+                            <span class="text-xs font-semibold text-slate-300">Totaal (12 maanden)</span>
+                            <span id="indicatie-totaal" class="text-xl font-extrabold text-amber-400">—</span>
+                        </div>
+
+                        <p class="text-[11px] text-slate-500 leading-relaxed">
+                            Alle prijzen excl. btw (21%). Werkelijk bedrag hangt af van aantal pagina's,
+                            teksten en gewenste functionaliteit.
+                        </p>
+                    </div>
+
+                    <div class="rounded-3xl border border-slate-800/80 bg-slate-900/50 backdrop-blur-xl p-6 space-y-3">
+                        <h3 class="text-sm font-extrabold text-white">Liever eerst bellen?</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Liever eerst even sparren over wat je nodig hebt? Dat mag. Geen verkoopgesprek,
+                            gewoon een korte kennismaking.
+                        </p>
+                        <a href="mailto:info@wintrip.nl" class="inline-flex items-center gap-2 text-sm font-bold text-amber-400 hover:underline">
+                            info@wintrip.nl →
+                        </a>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950/90 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 text-xs text-slate-400">
+            <div>
+                <div class="font-bold text-slate-200 text-sm">Philip Wintrip</div>
+                <div class="mt-1">Websites voor therapeuten, coaches en het spiritueel vlak</div>
+                <div class="mt-2">Alle prijzen excl. btw · KvK- en BTW-nummer op aanvraag · <span id="jaar"></span></div>
+            </div>
+            <nav class="flex flex-wrap items-center justify-center gap-4">
+                <a href="index.html" data-nav="index" class="footer-link hover:text-amber-400 font-medium">Home</a>
+                <a href="pakketten.html" data-nav="pakketten" class="footer-link hover:text-amber-400 font-medium">Pakketten &amp; prijzen</a>
+                <a href="aanvraag.html" data-nav="aanvraag" class="footer-link hover:text-amber-400 font-medium">Aanvraag</a>
+                <a href="faq.html" data-nav="faq" class="footer-link hover:text-amber-400 font-medium">FAQ</a>
+                <span class="text-slate-700">|</span>
+                <a href="mailto:info@wintrip.nl" class="text-amber-400 hover:underline font-medium">info@wintrip.nl</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="assets/site.js"></script>
+    <script src="assets/formulier.js"></script>
+</body>
+</html>

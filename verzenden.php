@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 const ONTVANGST = 'info@wintrip.nl';
 const AFZENDER  = 'website@wintrip.nl';
-const TERUG_URL = 'index.html';
+const TERUG_URL = 'aanvraag.html';
 
 /* ------------------------------------------------------------------ helpers */
 

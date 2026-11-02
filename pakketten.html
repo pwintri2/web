@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth h-full bg-slate-950 text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pakketten & prijzen — Website voor je spiritueel werk</title>
+    <meta name="description" content="Transparante prijzen voor websites in het spiritueel vlak: eenmalige investering per pakket en een onderhoudsabonnement per maand.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Pakketten & prijzen — Philip Wintrip">
+    <meta property="og:description" content="Transparante prijzen voor websites in het spiritueel vlak: eenmalige investering per pakket en een onderhoudsabonnement per maand.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23f59e0b'>✦</text></svg>">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18546508397"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18546508397');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="min-h-full font-sans antialiased selection:bg-amber-500/30 selection:text-amber-200 relative overflow-x-hidden">
+
+    <!-- Professionele gelaagde achtergrond (Hero SVG + Ambient Glows + Grid) -->
+    <div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+        <img src="assets/hero-bg.svg" alt="" aria-hidden="true" fetchpriority="high"
+             class="w-full h-full object-cover opacity-60 mix-blend-luminosity scale-105">
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
+        <div class="absolute inset-0 bg-tech-grid"></div>
+        <!-- Ambient Violet (rechts) & Goud (links) lichtaccenten -->
+        <div class="absolute -top-32 -right-24 w-[38rem] h-[38rem] rounded-full bg-violet-600/15 blur-[140px]"></div>
+        <div class="absolute bottom-0 -left-32 w-[36rem] h-[36rem] rounded-full bg-amber-500/10 blur-[140px]"></div>
+        <div class="absolute top-1/3 left-1/4 w-[28rem] h-[28rem] rounded-full bg-teal-500/10 blur-[130px]"></div>
+    </div>
+
+    <!-- Top Navigatiebalk -->
+    <header class="border-b border-slate-800/80 bg-slate-950/75 backdrop-blur-xl sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 py-4 flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-3.5 group shrink-0">
+                <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500/25 via-slate-900 to-violet-600/25 border border-slate-700/80 group-hover:border-amber-400/60 text-amber-300 font-extrabold tracking-tight shadow-inner transition">
+                    PW
+                </span>
+                <div class="min-w-0">
+                    <span class="text-base sm:text-lg font-extrabold tracking-tight text-white block leading-none truncate">
+                        Philip Wintrip <span class="hidden sm:inline text-amber-400 font-semibold text-xs sm:text-sm ml-1">Websites voor het spiritueel vlak</span>
+                    </span>
+                    <span class="text-[11px] text-slate-400 hidden sm:inline-block mt-1">
+                        Rustig, vertrouwenwekkend en helemaal van jou
+                    </span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-2 sm:gap-3 text-xs font-semibold">
+                <a href="index.html" data-nav="index" class="nav-link px-3.5 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition">Home</a>
+                <a href="pakketten.html" data-nav="pakketten" class="nav-link px-3.5 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition">Pakketten &amp; prijzen</a>
+                <a href="faq.html" data-nav="faq" class="nav-link px-3.5 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition">FAQ</a>
+                <a href="aanvraag.html" class="px-3 sm:px-3.5 py-2 rounded-xl btn-gold text-slate-950 font-extrabold shadow-lg shadow-amber-500/15 hover:shadow-amber-500/30 transition whitespace-nowrap">
+                    <span class="text-[11px] sm:text-xs">Vraag je website aan</span>
+                </a>
+            </nav>
+
+            <!-- Mobiel menu -->
+            <div class="md:hidden flex items-center gap-2">
+                <a href="aanvraag.html" class="px-3 py-2 rounded-xl btn-gold text-slate-950 font-extrabold text-[11px] shadow-lg shadow-amber-500/15 transition whitespace-nowrap">
+                    Aanvragen
+                </a>
+                <button type="button" id="menu-knop" aria-expanded="false" aria-controls="mobiel-menu" aria-label="Menu openen"
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700/80 bg-slate-900/70 text-slate-200">
+                    <svg id="menu-icoon-open" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                    <svg id="menu-icoon-sluit" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobiel menu-paneel -->
+        <div id="mobiel-menu" class="md:hidden hidden border-t border-slate-800/80 bg-slate-950/95 backdrop-blur-xl">
+            <nav class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-1 text-sm font-semibold">
+                <a href="index.html" data-nav="index" class="nav-link px-3 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition">Home</a>
+                <a href="pakketten.html" data-nav="pakketten" class="nav-link px-3 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition">Pakketten &amp; prijzen</a>
+                <a href="faq.html" data-nav="faq" class="nav-link px-3 py-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/80 transition">Veelgestelde vragen</a>
+                <a href="aanvraag.html" class="mt-2 px-4 py-3 rounded-xl btn-gold text-slate-950 font-extrabold text-center transition">Vraag je website aan</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-24 space-y-20">
+
+        <!-- ================================================================== -->
+        <!-- PAGINA-KOP -->
+        <!-- ================================================================== -->
+        <section class="text-center max-w-3xl mx-auto space-y-5 pt-4">
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-900/90 text-slate-200 border border-slate-700/80 shadow-lg">
+                <span class="h-2 w-2 rounded-full bg-amber-400 animate-pulse"></span>
+                <span>Prijsindicatie zonder verrassingen · Excl. btw</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-display font-semibold tracking-tight text-white leading-[1.15]">
+                Wat een website kost — <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-violet-400">eerlijk uitgelegd</span>
+            </h1>
+            <p class="text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                Vier pakketten voor de bouw en vier onderhoudsabonnementen voor daarna. Je kiest zelf,
+                wij zetten het in het aanvraagformulier over.
+            </p>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- PAKKETTEN (eenmalige investering) -->
+        <!-- ================================================================== -->
+        <section id="pakketten" class="space-y-8 scroll-mt-24">
+            <div class="max-w-3xl">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Websitepakketten</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-semibold text-white mt-1">
+                    Eenmalige investering, duidelijke prijs
+                </h2>
+                <p class="text-sm sm:text-base text-slate-400 mt-2 leading-relaxed">
+                    Alle prijzen zijn excl. btw en voorlopig. Kies je pakket, dan nemen we het over in het
+                    aanvraagformulier en maken we er een offerte op maat van.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
+
+                <!-- Essentieel -->
+                <article class="group rounded-3xl border border-slate-800/90 bg-slate-900/70 backdrop-blur-xl flex flex-col transition-all duration-300 card-glow-gold hover:-translate-y-1">
+                    <div class="p-6 space-y-4 flex-1">
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Essentieel</div>
+                        <h3 class="text-lg font-extrabold text-white">Een heldere start</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-white">€ 495</span>
+                            <span class="text-xs text-slate-400">excl. btw</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>1 responsive pagina</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Contactformulier + e-mailmeldingen</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Kleuren &amp; teksten zelf aanpassen</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>SSL, hosting &amp; basis SEO</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Oplevering met uitleg</span></li>
+                        </ul>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href="aanvraag.html?pakket=essentieel#aanvraag"
+                                class="w-full py-3 px-4 rounded-xl bg-slate-800/70 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700/80 transition">
+                        Kies dit pakket →
+                    </a>
+                    </div>
+                </article>
+
+                <!-- Helder -->
+                <article class="group rounded-3xl border border-amber-500/40 bg-slate-900/75 backdrop-blur-xl flex flex-col relative overflow-hidden transition-all duration-300 card-glow-gold hover:-translate-y-1">
+                    <span class="absolute top-0 right-0 px-4 py-1.5 bg-amber-500 text-slate-950 text-[11px] font-extrabold rounded-bl-xl">MEEST GEKOZEN</span>
+                    <div class="p-6 space-y-4 flex-1">
+                        <div class="text-xs font-bold uppercase tracking-wider text-amber-400">Helder</div>
+                        <h3 class="text-lg font-extrabold text-white">Voor een grotere praktijk</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-amber-400">€ 895</span>
+                            <span class="text-xs text-slate-400">excl. btw</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Tot 5 pagina's</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Afsprakenplanner &amp; contactformulier</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Nieuwsbrief-integratie</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Eigen beheeromgeving (CMS)</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-amber-400 font-bold mt-0.5">✓</span><span>Analytics &amp; basis lokale SEO</span></li>
+                        </ul>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href="aanvraag.html?pakket=helder#aanvraag"
+                                class="w-full py-3 px-4 rounded-xl btn-gold hover:brightness-110 text-slate-950 font-extrabold text-xs shadow-lg shadow-amber-500/15 transition">
+                        Kies dit pakket →
+                    </a>
+                    </div>
+                </article>
+
+                <!-- Uitgelicht -->
+                <article class="group rounded-3xl border border-slate-800/90 bg-slate-900/70 backdrop-blur-xl flex flex-col transition-all duration-300 card-glow-violet hover:-translate-y-1">
+                    <div class="p-6 space-y-4 flex-1">
+                        <div class="text-xs font-bold uppercase tracking-wider text-violet-400">Uitgelicht</div>
+                        <h3 class="text-lg font-extrabold text-white">Voor een volledig aanbod</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-white">€ 1.595</span>
+                            <span class="text-xs text-slate-400">excl. btw</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Tot 10 pagina's</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Cursus- of retreatmodule met betaling</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Webshop of donatie</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Meertalig (NL / EN)</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Volledige SEO-opzet</span></li>
+                        </ul>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href="aanvraag.html?pakket=uitgelicht#aanvraag"
+                                class="w-full py-3 px-4 rounded-xl bg-slate-800/70 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700/80 transition">
+                        Kies dit pakket →
+                    </a>
+                    </div>
+                </article>
+
+                <!-- Maatwerk -->
+                <article class="group rounded-3xl border border-slate-800/90 bg-slate-900/70 backdrop-blur-xl flex flex-col transition-all duration-300 card-glow-teal hover:-translate-y-1">
+                    <div class="p-6 space-y-4 flex-1">
+                        <div class="text-xs font-bold uppercase tracking-wider text-teal-400">Maatwerk</div>
+                        <h3 class="text-lg font-extrabold text-white">Iets unieks?</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-white">vanaf € 2.395</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Ledenportaal of community</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Integraties (agenda, boekingen, betalingen)</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Motion, beeld &amp; sfeervlak</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Volledig op maat in overleg</span></li>
+                        </ul>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href="aanvraag.html?pakket=maatwerk#aanvraag"
+                                class="w-full py-3 px-4 rounded-xl bg-slate-800/70 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700/80 transition">
+                        Kies dit pakket →
+                    </a>
+                    </div>
+                </article>
+
+            </div>
+
+        <p class="text-xs text-slate-500 text-center">
+            Alle prijzen excl. btw (21%) · Betaling 50% bij start en 50% bij oplevering ·
+            Gemiddelde doorlooptijd 3–5 weken · Vaste prijs, geen nacalculatie
+        </p>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- ONDERHOUDSABONNEMENT -->
+        <!-- ================================================================== -->
+        <section id="onderhoud" class="space-y-8 scroll-mt-24">
+            <div class="max-w-3xl">
+                <span class="text-xs font-bold uppercase tracking-wider text-teal-400">Onderhoudsabonnement</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-semibold text-white mt-1">
+                    Laat je site ademen — of beheer hem helemaal zelf
+                </h2>
+                <p class="text-sm sm:text-base text-slate-400 mt-2 leading-relaxed">
+                    Een website groeit, verouderd of raakt kwijt. Kies per maand wat je uit handen geeft.
+                    Elk abonnement is maandelijks opzegbaar — je zit nergens aan vast.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 items-stretch">
+
+                <article class="rounded-3xl border border-slate-800/90 bg-slate-900/60 backdrop-blur-xl p-6 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Zelfbeheer</div>
+                        <h3 class="text-lg font-extrabold text-white">Ik doe het zelf</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-white">€ 0</span>
+                            <span class="text-xs text-slate-400">per maand</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-slate-400 font-bold mt-0.5">✓</span><span>Volledige toegang tot de beheeromgeving</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-slate-400 font-bold mt-0.5">✓</span><span>Handleiding in begrijpelijke taal</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-slate-400 font-bold mt-0.5">✓</span><span>1 uur instructiecall bij oplevering</span></li>
+                        </ul>
+                    </div>
+                    <a href="aanvraag.html?onderhoud=zelfbeheer#aanvraag"
+                            class="mt-6 w-full py-3 px-4 rounded-xl bg-slate-800/70 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700/80 transition">
+                        Kies dit abonnement →
+                    </a>
+                </article>
+
+                <article class="rounded-3xl border border-slate-800/90 bg-slate-900/60 backdrop-blur-xl p-6 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-xs font-bold uppercase tracking-wider text-teal-400">Zorgbasis</div>
+                        <h3 class="text-lg font-extrabold text-white">Up-to-date &amp; veilig</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-teal-400">€ 25</span>
+                            <span class="text-xs text-slate-400">per maand</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Beveiligings- &amp; pluginupdates</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Dagelijkse back-ups &amp; SSL</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>1 uur support per maand</span></li>
+                        </ul>
+                    </div>
+                    <a href="aanvraag.html?onderhoud=zorgbasis#aanvraag"
+                            class="mt-6 w-full py-3 px-4 rounded-xl bg-slate-800/70 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700/80 transition">
+                        Kies dit abonnement →
+                    </a>
+                </article>
+
+                <article class="rounded-3xl border border-teal-500/40 bg-slate-900/70 backdrop-blur-xl p-6 flex flex-col justify-between relative overflow-hidden">
+                    <span class="absolute top-0 right-0 px-4 py-1.5 bg-teal-500 text-slate-950 text-[11px] font-extrabold rounded-bl-xl">MEEST GEKOZEN</span>
+                    <div class="space-y-3">
+                        <div class="text-xs font-bold uppercase tracking-wider text-teal-400">Zorg plus</div>
+                        <h3 class="text-lg font-extrabold text-white">Ook mee blijven groeien</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-teal-400">€ 49</span>
+                            <span class="text-xs text-slate-400">per maand</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Alles uit Zorgbasis</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Contentwijzigingen (tot 2 uur)</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-teal-400 font-bold mt-0.5">✓</span><span>Kwartaalreview &amp; prioriteit in de rij</span></li>
+                        </ul>
+                    </div>
+                    <a href="aanvraag.html?onderhoud=zorgplus#aanvraag"
+                            class="mt-6 w-full py-3 px-4 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-extrabold text-xs shadow-lg shadow-teal-600/20 transition">
+                        Kies dit abonnement →
+                    </a>
+                </article>
+
+                <article class="rounded-3xl border border-slate-800/90 bg-slate-900/60 backdrop-blur-xl p-6 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-xs font-bold uppercase tracking-wider text-violet-400">Zorg groei</div>
+                        <h3 class="text-lg font-extrabold text-white">Continu in beweging</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-violet-400">€ 89</span>
+                            <span class="text-xs text-slate-400">per maand</span>
+                        </div>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-4">
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Alles uit Zorg plus</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>5 uur per maand voor doorontwikkeling</span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-violet-400 font-bold mt-0.5">✓</span><span>Lokale SEO &amp; maandelijkse rapportage</span></li>
+                        </ul>
+                    </div>
+                    <a href="aanvraag.html?onderhoud=zorggroei#aanvraag"
+                            class="mt-6 w-full py-3 px-4 rounded-xl bg-slate-800/70 hover:bg-slate-700 text-white font-bold text-xs border border-slate-700/80 transition">
+                        Kies dit abonnement →
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <div class="rounded-3xl border border-slate-800/80 bg-slate-900/60 backdrop-blur-xl p-6 sm:p-10">
+            <div class="max-w-3xl mb-8">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Werkwijze</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Van eerste gesprek tot een live website</h2>
+                <p class="text-sm text-slate-400 mt-1">
+                    Je hoeft niets van websites te snappen. Jij vertelt wat je wilt vertellen, wij regelen de techniek.
+                </p>
+            </div>
+
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
+                <div class="rounded-2xl bg-slate-950/80 border border-slate-800/90 p-5 space-y-2">
+                    <div class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 font-bold text-xs border border-amber-500/30">1</div>
+                    <h3 class="font-bold text-white text-base">Intake &amp; gesprek</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        30 minuten (gratis) via beeldbellen of telefonisch. We luisteren naar je werk,
+                        je doelgroep en hoe je wilt klinken.
+                    </p>
+                </div>
+                <div class="rounded-2xl bg-slate-950/80 border border-slate-800/90 p-5 space-y-2">
+                    <div class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 font-bold text-xs border border-amber-500/30">2</div>
+                    <h3 class="font-bold text-white text-base">Concept &amp; uiterlijk</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Binnen 3 werkdagen krijg je een moodboard met sfeer, kleurpalet en de structuur
+                        van je pagina's.
+                    </p>
+                </div>
+                <div class="rounded-2xl bg-slate-950/80 border border-slate-800/90 p-5 space-y-2">
+                    <div class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-violet-500/15 text-violet-400 font-bold text-xs border border-violet-500/30">3</div>
+                    <h3 class="font-bold text-white text-base">Bouw &amp; content</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        3 tot 5 weken. Jij levert teksten, logo en foto's — of we schrijven de teksten
+                        met je mee.
+                    </p>
+                </div>
+                <div class="rounded-2xl bg-slate-950/80 border border-slate-800/90 p-5 space-y-2">
+                    <div class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-teal-500/15 text-teal-400 font-bold text-xs border border-teal-500/30">4</div>
+                    <h3 class="font-bold text-white text-base">Live &amp; nazorg</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Oplevering met uitleg, en met een onderhoudsabonnement blijven we bereikbaar
+                        als er iets verandert.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLOT CTA -->
+        <!-- ================================================================== -->
+        <section class="text-center max-w-3xl mx-auto space-y-6 rounded-3xl border border-amber-500/25 bg-gradient-to-b from-amber-500/10 via-slate-900/40 to-slate-900/40 backdrop-blur-xl p-8 sm:p-12">
+            <h2 class="text-3xl sm:text-4xl font-display font-semibold text-white leading-tight">
+                Klaar om een website te hebben die<br class="hidden sm:block"> echt bij je werk past?
+            </h2>
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-xl mx-auto">
+                Vul het formulier in, of mail gerust direct. We nemen binnen 24 uur contact op —
+                vrijblijvend en zonder verkooptrucs.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="aanvraag.html" class="w-full sm:w-auto px-8 py-4 rounded-xl btn-gold hover:brightness-110 text-slate-950 font-extrabold text-sm shadow-xl shadow-amber-500/20 transition">
+                    Naar het aanvraagformulier →
+                </a>
+                <a href="mailto:info@wintrip.nl" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900/70 hover:bg-slate-800/80 text-slate-100 border border-slate-700/80 hover:border-slate-600 font-bold text-sm transition">
+                    info@wintrip.nl
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950/90 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 text-xs text-slate-400">
+            <div>
+                <div class="font-bold text-slate-200 text-sm">Philip Wintrip</div>
+                <div class="mt-1">Websites voor therapeuten, coaches en het spiritueel vlak</div>
+                <div class="mt-2">Alle prijzen excl. btw · KvK- en BTW-nummer op aanvraag · <span id="jaar"></span></div>
+            </div>
+            <nav class="flex flex-wrap items-center justify-center gap-4">
+                <a href="index.html" data-nav="index" class="footer-link hover:text-amber-400 font-medium">Home</a>
+                <a href="pakketten.html" data-nav="pakketten" class="footer-link hover:text-amber-400 font-medium">Pakketten &amp; prijzen</a>
+                <a href="aanvraag.html" data-nav="aanvraag" class="footer-link hover:text-amber-400 font-medium">Aanvraag</a>
+                <a href="faq.html" data-nav="faq" class="footer-link hover:text-amber-400 font-medium">FAQ</a>
+                <span class="text-slate-700">|</span>
+                <a href="mailto:info@wintrip.nl" class="text-amber-400 hover:underline font-medium">info@wintrip.nl</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="assets/site.js"></script>
+
+</body>
+</html>
