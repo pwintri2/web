@@ -154,6 +154,7 @@
 
     var apiEndpoints = [];
     if (forcedApi) apiEndpoints.push(forcedApi);
+    apiEndpoints.push("chat-api.php");
     apiEndpoints.push("https://philip-wintrip.nl/agent/public/api/chat");
     if (window.location.origin.indexOf("philip-wintrip.nl") !== -1) {
       apiEndpoints.unshift("/agent/public/api/chat");
@@ -810,3 +811,4 @@
     initWidget();
   }
 })();
+
